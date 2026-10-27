@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: orbit-workspace
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 24
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGO_URI
+        sync: false
+      - key: CLIENT_ORIGIN
+        sync: false
+      - key: ENABLE_DEMO
+        value: 'true'
+      - key: TRUST_PROXY
+        value: '1'
+      - key: MONGOMS_DISABLE_POSTINSTALL
+        value: '1'
