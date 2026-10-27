@@ -1,88 +1,120 @@
-# Orbit — Make space for great work
+# Orbit — Project Management Workspace
 
-A full-stack project workspace with a considered interface and real collaboration underneath. Orbit brings projects, tasks, people, and progress into one focused place.
+[![CI](https://github.com/devstark7/orbit-workspace/actions/workflows/ci.yml/badge.svg)](https://github.com/devstark7/orbit-workspace/actions/workflows/ci.yml)
+
+**Make space for great work.** A full-stack workspace for organizing projects, coordinating tasks, and understanding team progress. Orbit combines a custom responsive interface with server-enforced project permissions, persistent activity history, and reliable task updates.
 
 **React 19 · Vite · Express · MongoDB · Motion · dnd-kit**
 
 ![Orbit project board](docs/screenshots/board.png)
 
-[Overview](docs/screenshots/overview.png) · [Mobile board](docs/screenshots/mobile-board.png) · [Welcome screen](docs/screenshots/welcome.png)
+[Overview screenshot](docs/screenshots/overview.png) · [Mobile screenshot](docs/screenshots/mobile-board.png) · [Welcome screenshot](docs/screenshots/welcome.png)
 
-> Frontend and backend source live in this repository. No paid API, external design asset, or account is needed to try the local demo.
+## Quick start
 
-## Try it in two commands
-
-Requires **Node.js 22.12+ (Node 24 recommended)** and npm.
+Requires **Node.js 22.12 or newer** and npm. Node 24 is recommended.
 
 ```sh
+git clone https://github.com/devstark7/orbit-workspace.git
+cd orbit-workspace
 npm ci
 npm run dev
 ```
 
-Open **http://127.0.0.1:5173** and choose **Explore the live demo**. Orbit creates a private workspace with fictional teammates, three projects, fifteen tasks, and activity history. Every demo session gets separate data.
+Open **http://127.0.0.1:5173** and select **Explore the live demo**. The API runs on port **5000**. Both frontend and backend are included in this repository.
 
-On first use, `mongodb-memory-server` downloads an official MongoDB binary. Internet is required for that first download. The local database is temporary: **stopping the API resets its data**. Demo records also have a 24-hour expiration in persistent databases. See persistent setup below before using real work.
+No account, paid API, or environment file is required for the local demo. Each demo session receives an isolated workspace containing three projects, fifteen tasks, fictional teammates, and sample activity.
 
-## What you can do
+**Local demo storage is temporary.** Without `MONGO_URI`, the API starts an in-memory MongoDB replica set; stopping the API resets its data. The first start requires internet access to download an official MongoDB binary. Demo records expire after 24 hours when using persistent storage.
 
-- **Get perspective:** an overview with project progress, task counts, overdue work, and a completion chart calculated from real task timestamps.
-- **Move work forward:** drag cards between board columns, or use the status selector for keyboard access. Switch between board and table layouts.
-- **Keep context close:** create and edit projects and tasks, assign project members, set due dates and priorities, and discuss work in task comments.
-- **Find your next step:** search the workspace with `Ctrl/⌘ K`, create a task with `N`, filter by priority or status, and export the visible task list to CSV.
-- **Work together:** project owners can add an existing account by email. Invitations do not send emails. Members collaborate within their projects; server checks protect every project and task route.
-- **Find your rhythm:** a focus/break timer, compact layout, reduced-motion preference, and responsive navigation.
-- **Stay in the loop:** a server-persisted activity feed records project, task, and comment changes.
+## Explore in two minutes
 
-## The craft
+1. Open the demo and review project progress on **Overview**.
+2. Open a project, create a task with an assignee and due date, and drag it to another status.
+3. Open the task, add a comment, and reload to confirm it was saved.
+4. Switch between board and table views, filter tasks, and export the visible results to CSV.
+5. Try `Ctrl/⌘ K` for search, `N` for a new task, and the focus timer. Resize to a mobile viewport to explore the navigation drawer.
 
-Orbit uses a deep green frame, warm neutral canvas, lime details, locally hosted variable type, and custom CSS orbital illustrations. The artwork is code, not a stock image. Motion supports orientation: page entrances, project hover, animated progress, and draggable cards. System reduced-motion preferences are respected.
+## Features
 
-Dialogs contain keyboard focus and restore it on close. Buttons have accessible names, forms have labels, status is expressed with words as well as color, and the board has a keyboard alternative. The layout adapts to narrow screens with a collapsible sidebar and horizontally scrollable board and tables.
+| Area         | Included                                                                                                         |
+| ------------ | ---------------------------------------------------------------------------------------------------------------- |
+| Projects     | Create and edit projects, track progress, add existing users by email, and manage project membership             |
+| Tasks        | Board and table views, drag-and-drop status changes, priorities, assignees, due dates, comments, and deletion    |
+| Insights     | Task totals, overdue work, completion history, and a persisted activity feed                                     |
+| Productivity | Workspace search, filters, CSV export, keyboard shortcuts, and a focus/break timer                               |
+| Interface    | Custom orbital artwork, locally hosted fonts, animated transitions, compact mode, and reduced-motion support     |
+| Access       | Registration, sign-in, cookie-based sessions, project membership checks, and owner-controlled project management |
 
-## Persistent database setup
+Adding an existing account to a project does not send an invitation email. Demo teammates are fictional.
 
-Copy the example configuration:
+## Engineering decisions
+
+- **Authorization lives on the server.** Task routes check membership in the parent project. Public registration always creates a Member; submitted role fields cannot grant administrative access.
+- **Related writes commit together.** MongoDB transactions keep project/task mutations and activity records consistent. Failed audit writes roll back the operation.
+- **Task retries are safe.** A repeated task-creation request with the same ID and details returns the existing task. Reusing that ID with different details is rejected.
+- **Deadlines are calendar dates.** Due dates retain their intended day across timezones; completion timestamps remain actual instants.
+- **Sessions use HTTP-only cookies.** Production cookies are Secure; logout revokes the user's existing sessions. Passwords are hashed with bcrypt.
+- **Startup checks dependencies.** The server waits for its database and indexes, rejects standalone MongoDB, and shuts down gracefully.
+
+The interface uses a deep green sidebar, warm neutral canvas, lime accents, and CSS-built illustrations. Dialogs trap and restore focus, forms have labels, status has text labels, and drag-and-drop has a status-selector alternative. System reduced-motion preferences are respected.
+
+## Technology
+
+| Layer          | Tools                                                               |
+| -------------- | ------------------------------------------------------------------- |
+| Frontend       | React 19, Vite, Motion, dnd-kit, custom layered CSS                 |
+| Backend        | Node.js, Express, Mongoose 8                                        |
+| Database       | MongoDB replica set; temporary replica set for local demos          |
+| Authentication | JWT sessions in HTTP-only cookies, bcrypt password hashing          |
+| Verification   | Node test runner, Supertest, mongodb-memory-server, GitHub Actions  |
+| Tooling        | npm workspaces, Prettier, Docker and cloud deployment configuration |
+
+## Persistent storage and configuration
+
+Copy the environment template:
 
 ```powershell
 Copy-Item backend/.env.example backend/.env
 ```
 
-Set `MONGO_URI` to a MongoDB replica set or your MongoDB Atlas connection string. Orbit requires transaction support and rejects standalone MongoDB at startup. Do not commit `.env`.
+On macOS or Linux, use `cp backend/.env.example backend/.env`.
 
-| Variable        | Development                                  | Production                                                  |
-| --------------- | -------------------------------------------- | ----------------------------------------------------------- |
-| `MONGO_URI`     | Optional; uses temporary MongoDB when absent | Required, persistent database                               |
-| `JWT_SECRET`    | Generated in memory at startup when absent   | Required, random string of at least 32 characters           |
-| `CLIENT_ORIGIN` | `http://127.0.0.1:5173`                      | Exact HTTPS URL of the deployed app, with no trailing slash |
-| `PORT`          | `5000`                                       | Hosting provider port                                       |
-| `HOST`          | `127.0.0.1`                                  | `0.0.0.0` for containers and hosted services                |
-| `NODE_ENV`      | Unset                                        | `production`                                                |
-| `ENABLE_DEMO`   | Demo enabled                                 | Set `true` explicitly to enable demo sessions               |
-| `TRUST_PROXY`   | Unset                                        | `1` only behind one trusted reverse proxy                   |
+Set `MONGO_URI` to a **MongoDB replica set or MongoDB Atlas** connection string. Transactions are required; standalone MongoDB is not supported. Keep `.env` out of version control.
 
-Generate a production signing secret locally with `node -e "console.log(require('node:crypto').randomBytes(48).toString('hex'))"` and enter it directly in your hosting provider’s secret settings. Never place it in GitHub source or a screenshot.
+| Variable        | Local development                        | Production                                        |
+| --------------- | ---------------------------------------- | ------------------------------------------------- |
+| `MONGO_URI`     | Optional; temporary database when absent | Required; persistent replica set                  |
+| `JWT_SECRET`    | Generated in memory when absent          | Required; random secret of at least 32 characters |
+| `CLIENT_ORIGIN` | `http://127.0.0.1:5173`                  | Exact HTTPS app origin, without a trailing slash  |
+| `PORT`          | `5000`                                   | Hosting provider's port                           |
+| `HOST`          | `127.0.0.1`                              | `0.0.0.0` for hosted services                     |
+| `NODE_ENV`      | Unset                                    | `production`                                      |
+| `ENABLE_DEMO`   | Demo enabled                             | Set `true` explicitly to enable demos             |
+| `TRUST_PROXY`   | Unset                                    | `1` only behind one trusted reverse proxy         |
 
-For persistent local MongoDB without Atlas:
+Generate a signing secret locally and store it in your hosting provider's secret settings:
+
+```sh
+node -e "console.log(require('node:crypto').randomBytes(48).toString('hex'))"
+```
+
+### Local MongoDB with Docker
 
 ```sh
 docker compose up -d
+docker compose ps
 ```
 
-Wait for `docker compose ps` to report healthy. Set `MONGO_URI=mongodb://127.0.0.1:27017/orbit?replicaSet=rs0&directConnection=true` in `backend/.env`, then run `npm run dev`. The supplied single-node replica set is for local development; use a managed replica set for production.
+Once MongoDB reports healthy, set the following in `backend/.env` and restart the development server:
 
-## Production
-
-```sh
-npm ci
-npm run build
-npm start
+```dotenv
+MONGO_URI=mongodb://127.0.0.1:27017/orbit?replicaSet=rs0&directConnection=true
 ```
 
-The Express server serves `frontend/dist` and `/api` from **one origin**. Production requires HTTPS because the session cookie is Secure. A private preview must not be mistaken for a recruiter-accessible deployment.
+The supplied single-node replica set is intended for local development.
 
-`render.yaml` is a deployment blueprint. Supply your MongoDB connection string and exact deployed `CLIENT_ORIGIN`; it generates a signing secret. Cloud deployment is a separate operation and may incur hosting costs. A blueprint is not evidence of an active deployment.
-
-## Verification
+## Checks and test coverage
 
 ```sh
 npm test
@@ -90,47 +122,68 @@ npm run build
 npm run format:check
 ```
 
-- API integration tests use a real temporary MongoDB instance and Supertest cookie agents.
-- Regression cases cover public admin escalation, project-ID task disclosure, cross-project writes, invalid assignments, member/owner permissions, session revocation, input validation, and isolated demo sessions.
-- Fault-injection tests verify rollback when activity writes or project deletion fail. Retry tests verify that simultaneous duplicate task submissions create one task and one activity record.
-- Frontend logic tests cover composed filters, overdue boundaries, completion series, empty-state summaries, CSV escaping, and avatar initials.
-- Deadline regressions run in five timezones, including negative offsets, UTC+14, India, and a daylight-saving boundary. Due dates are calendar days; completion times remain actual instants.
+The verified suite contains **39 passing tests: 27 API tests and 12 frontend tests**. GitHub Actions runs the automated checks; the badge above links to the current workflow.
 
-See [verification notes](docs/VERIFICATION.md) for the exact checks and limits of the delivered version.
+Coverage includes:
 
-## Inside the project
+- Project membership boundaries, owner/member permissions, cross-project access attempts, invalid input, and session revocation.
+- Transaction rollback after injected failures, including cascading project deletion.
+- Sequential and concurrent duplicate task submissions.
+- Filtering, completion summaries, CSV escaping, and stable submission keys.
+- Calendar deadlines in five timezones, including UTC+14 and a daylight-saving boundary.
+
+Desktop and mobile browser checks covered demo entry, CRUD flows, comments, persisted drag-and-drop changes, search, export, and responsive navigation. See [the verification record](docs/VERIFICATION.md) for evidence and remaining limits.
+
+## Production setup
+
+Configure the production environment variables above, then run:
+
+```sh
+npm ci
+npm run build
+npm start
+```
+
+Express serves the built frontend and `/api` from one origin. HTTPS is required for production session cookies.
+
+This repository includes a `Dockerfile`, `render.yaml`, and `railway.json`. Supply a persistent MongoDB replica set and the correct deployed origin before deployment. **A public hosted application has not been verified.** Docker and cloud configuration are provided but have not been exercised in the verification environment.
+
+## Project structure
 
 ```text
 backend/
-  app.js                 Express middleware, route composition, error boundary
+  app.js                 Middleware, routes, and error handling
   server.js              Database-first startup and graceful shutdown
-  controllers/           Explicit business actions
-  lib/                   Shared validation and membership authorization
-  models/                Mongoose schemas and indexes
-  seed.js                Fictional, isolated demo workspace generator
-  tests/                 API regression tests against MongoDB
+  controllers/           Authentication, project, and task actions
+  lib/                   Validation, authorization, and transactions
+  models/                Schemas and indexes
+  seed.js                Isolated fictional demo workspaces
+  tests/                 API integration and reliability regressions
 frontend/
-  src/OrbitApp.jsx        Workspace state, server actions, navigation
-  src/components/        Overview, sidebar, settings, command palette, board, dialogs
-  src/lib/               Fetch client and pure task/statistics functions
-  src/orbit.css          Explicit layer order and feature stylesheet imports
-  src/styles/            Base, workspace, dialog, welcome, typography, responsive styles
-  tests/                 Domain behavior tests
+  src/OrbitApp.jsx        Workspace state and server actions
+  src/components/        Overview, board, forms, search, settings, and navigation
+  src/lib/               API client, task calculations, and retry keys
+  src/styles/            Layered interface and responsive styles
+  tests/                 Domain and timezone regressions
 docs/
-  ARCHITECTURE.md         Data flow, permissions, and deliberate tradeoffs
-  INTERVIEW_GUIDE.md      Walkthrough prompts for explaining the work
+  screenshots/           Actual application captures
+  ARCHITECTURE.md         Data flow, permission model, and tradeoffs
+  VERIFICATION.md         Checks performed and verification limits
+  INTERVIEW_GUIDE.md      Technical walkthrough and discussion prompts
 ```
 
-## Security and limits
+## Documentation and limitations
 
-- Passwords use bcrypt. Public signup always creates a Member; client-supplied roles are ignored.
-- JWT sessions are held in HTTP-only, SameSite cookies. Logout invalidates that user’s existing sessions.
-- Every task operation checks membership in its parent project. Platform role does not bypass project ownership.
-- Helmet security headers, same-origin write checks, request limits, bounded input, and explicit field allowlists are included.
-- Demo sessions are rate limited and expire. Demo teammates are fictional and cannot be used to invite real users.
-- Rate limits are process-local; a multi-instance deployment should use a shared limiter store. There is no email verification, password reset service, WebSocket sync, or production monitoring integration.
-- This is a portfolio implementation, not a promise of enterprise hardening or hiring success. See the architecture notes for operational tradeoffs.
+- [Architecture and design decisions](docs/ARCHITECTURE.md)
+- [Verification record](docs/VERIFICATION.md)
+- [Technical walkthrough](docs/INTERVIEW_GUIDE.md)
 
-## Origin and authorship
+Rate limits are process-local; multiple application instances need a shared limiter store. Email verification, password reset, WebSocket synchronization, and production monitoring are not implemented. Production load capacity, uptime, and formal accessibility compliance have not been established.
 
-Orbit evolves the account owner’s earlier `Devcomplexity/team-task-manager` project. It retains the React/Express/MongoDB concept, while replacing the interface, build tooling, authentication flow, and permission handling. The new repository is a source import followed by a documented rebuild, not a preserved copy of the old commit history. Fictional demo data illustrates the product; it does not represent clients, usage metrics, or paid work.
+## Origin and license
+
+Orbit evolves the account owner's earlier `Devcomplexity/team-task-manager` project. The rebuild replaces the interface, build tooling, authentication flow, and permission handling. This repository imports the source and records the rebuild; it does not preserve the earlier repository's commit history.
+
+Demo names, tasks, and activity are fictional and do not represent clients or usage metrics.
+
+Released under the [MIT License](LICENSE).
