@@ -8,10 +8,11 @@ import {
   ShieldCheck,
   Sparkles,
 } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import { Brand, Spinner } from './ui';
 import { api } from '../lib/api';
 export default function AuthScreen({ onAuth }) {
+  const reducedMotion = useReducedMotion();
   const [mode, setMode] = useState('login'),
     [busy, setBusy] = useState(''),
     [error, setError] = useState('');
@@ -60,8 +61,8 @@ export default function AuthScreen({ onAuth }) {
           <motion.div
             className="floating-note note-one"
             animate={{
-              y: [0, -9, 0],
-              rotate: [-7, -5, -7],
+              y: reducedMotion ? 0 : [0, -9, 0],
+              rotate: reducedMotion ? -7 : [-7, -5, -7],
             }}
             transition={{
               duration: 6,
@@ -82,8 +83,8 @@ export default function AuthScreen({ onAuth }) {
           <motion.div
             className="floating-note note-two"
             animate={{
-              y: [0, 8, 0],
-              rotate: [6, 4, 6],
+              y: reducedMotion ? 0 : [0, 8, 0],
+              rotate: reducedMotion ? 6 : [6, 4, 6],
             }}
             transition={{
               duration: 7,

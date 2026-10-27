@@ -3,7 +3,7 @@
 ## Automated checks
 
 - API regression suite: **27 tests passed** against a real temporary MongoDB replica set, including fault injection, atomic rollback, and concurrent duplicate submissions.
-- Frontend domain suite: **12 tests passed**, including calendar deadlines across five timezones and stable retry keys.
+- Frontend domain suite: **19 tests passed**, including calendar deadlines across five timezones, stable retry keys, and API response failures.
 - Vite production build: passed locally on Windows with Node 24.
 - npm dependency audit at installation: **0 reported vulnerabilities**. This is a point-in-time registry check, not a comprehensive security audit.
 

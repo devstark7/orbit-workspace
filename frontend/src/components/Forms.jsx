@@ -39,7 +39,7 @@ export function ProjectForm({ onClose, onSave, onDelete, project }) {
             required
             maxLength={100}
             defaultValue={project?.name}
-            placeholder="Something worth building"
+            placeholder="e.g. Customer portal redesign"
           />
         </label>
         <label>
@@ -48,7 +48,7 @@ export function ProjectForm({ onClose, onSave, onDelete, project }) {
             name="description"
             maxLength={2000}
             defaultValue={project?.description}
-            placeholder="What are we making, and why does it matter?"
+            placeholder="Describe the goal, scope, and expected outcome"
             rows={3}
           />
         </label>
@@ -188,7 +188,7 @@ export function TaskForm({ onClose, onSave, projects, projectId, task, status = 
             required
             maxLength={160}
             defaultValue={task?.title}
-            placeholder="Give the next step a name"
+            placeholder="e.g. Add password validation to signup"
           />
         </label>
         <label>
@@ -198,7 +198,7 @@ export function TaskForm({ onClose, onSave, projects, projectId, task, status = 
             rows={3}
             maxLength={4000}
             defaultValue={task?.description}
-            placeholder="A little context goes a long way…"
+            placeholder="Add requirements, acceptance criteria, or relevant links"
           />
         </label>
         <label>
@@ -383,7 +383,7 @@ export function TaskDetail({ task, onClose, onEdit, onMove, onComment, onDelete,
             <textarea
               name="text"
               aria-label="Write a comment"
-              placeholder="Keep the conversation moving…"
+              placeholder="Share an update or ask a question…"
               required
               maxLength={2000}
               rows={2}

@@ -22,9 +22,21 @@ export async function api(path, options = {}) {
       0,
     );
   }
-  const data = await response
-    .json()
-    .catch(() => ({ message: 'The server returned an unexpected response.' }));
+  if (response.status === 204) return null;
+  let data;
+  try {
+    data = await response.json();
+  } catch {
+    throw new ApiError(
+      'The server returned an unexpected response. Please try again.',
+      response.status,
+    );
+  }
+  if (!data || typeof data !== 'object')
+    throw new ApiError(
+      'The server returned an unexpected response. Please try again.',
+      response.status,
+    );
   if (!response.ok) throw new ApiError(data.message || 'Request failed.', response.status);
   return data;
 }

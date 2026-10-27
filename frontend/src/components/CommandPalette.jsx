@@ -20,7 +20,7 @@ export default function CommandPalette({
             aria-label="Search workspace"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Projects, tasks, a little inspiration…"
+            placeholder="Search projects and tasks…"
           />
           <kbd>Esc</kbd>
         </div>

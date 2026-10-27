@@ -122,7 +122,7 @@ npm run build
 npm run format:check
 ```
 
-The verified suite contains **39 passing tests: 27 API tests and 12 frontend tests**. GitHub Actions runs the automated checks; the badge above links to the current workflow.
+The verified suite contains **46 passing tests: 27 API tests and 19 frontend tests**. GitHub Actions runs the automated checks; the badge above links to the current workflow.
 
 Coverage includes:
 
