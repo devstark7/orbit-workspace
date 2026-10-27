@@ -2161,3 +2161,41 @@
   gap: 5px;
   font-size: 10px;
 }
+.review-guide {
+  margin: 16px 28px 0;
+  padding: 14px 18px;
+  border: 1px solid #d8e4cb;
+  border-radius: 14px;
+  background: #edf4e5;
+  color: #274e3d;
+  font-size: 12px;
+}
+.review-guide > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  align-items: center;
+}
+.review-guide summary {
+  cursor: pointer;
+  margin-top: 9px;
+  font-weight: 700;
+}
+.review-guide p {
+  max-width: 850px;
+  line-height: 1.7;
+  margin: 10px 0;
+}
+.review-guide a {
+  text-decoration: underline;
+  margin-right: 20px;
+  display: inline-block;
+}
+.review-guide button {
+  margin-top: 8px;
+}
+@media (max-width: 760px) {
+  .review-guide {
+    margin: 12px 16px 0;
+  }
+}

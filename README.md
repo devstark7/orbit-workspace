@@ -6,6 +6,14 @@
 
 **React 19 · Vite · Express · MongoDB · Motion · dnd-kit**
 
+### Try the demo — no setup or sign-in
+
+**[Open the interactive Orbit demo →](https://orbit-workspace-devstark7.redroot4097.chatgpt.site)**
+
+The hosted demo opens straight into a sample workspace. Create tasks, change statuses, add comments, search, and export CSV. A built-in two-minute review guide and reset button make it easy to explore.
+
+**Demo scope:** the hosted preview stores changes in your browser. It does not connect to the Express/MongoDB server or exercise real authentication and multi-user authorization. Both backend and frontend source are included here; follow Quick start to run the complete application.
+
 ![Orbit project board](docs/screenshots/board.png)
 
 [Overview screenshot](docs/screenshots/overview.png) · [Mobile screenshot](docs/screenshots/mobile-board.png) · [Welcome screenshot](docs/screenshots/welcome.png)
@@ -122,7 +130,7 @@ npm run build
 npm run format:check
 ```
 
-The verified suite contains **46 passing tests: 27 API tests and 19 frontend tests**. GitHub Actions runs the automated checks; the badge above links to the current workflow.
+The verified suite contains **48 passing tests: 27 API tests and 21 frontend tests**. GitHub Actions runs the automated checks; the badge above links to the current workflow.
 
 Coverage includes:
 
@@ -146,7 +154,18 @@ npm start
 
 Express serves the built frontend and `/api` from one origin. HTTPS is required for production session cookies.
 
-This repository includes a `Dockerfile`, `render.yaml`, and `railway.json`. Supply a persistent MongoDB replica set and the correct deployed origin before deployment. **A public hosted application has not been verified.** Docker and cloud configuration are provided but have not been exercised in the verification environment.
+This repository includes a `Dockerfile`, `render.yaml`, and `railway.json`. Supply a persistent MongoDB replica set and the correct deployed origin before deploying the full-stack application. The public browser demo above is deployed separately as static assets. Docker and full-stack cloud configuration have not been exercised in the verification environment.
+
+To build the same browser-only preview locally in PowerShell:
+
+```powershell
+$env:VITE_BROWSER_DEMO = 'true'
+npm run build
+Remove-Item Env:VITE_BROWSER_DEMO
+npm run preview -w frontend
+```
+
+Without that build flag, the application uses the real `/api` backend. The demo adapter is a presentation aid, not an authentication or authorization implementation.
 
 ## Project structure
 

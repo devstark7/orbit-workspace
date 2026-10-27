@@ -20,7 +20,7 @@ import {
   MoreHorizontal,
   RefreshCw,
 } from 'lucide-react';
-import { api } from './lib/api';
+import { api, browserDemo } from './lib/api';
 import { filterTasks, summarize, recordId, dateLabel, csvExport, isOverdue } from './lib/domain';
 import {
   Brand,
@@ -403,6 +403,41 @@ export default function App() {
                 </button>
               </div>
             </header>
+            {browserDemo && (
+              <aside className="review-guide" aria-label="Evaluator demo guide">
+                <div>
+                  <strong>Interactive product demo</strong>
+                  <span>Sample data · Changes stay in this browser · No sign-in required</span>
+                </div>
+                <details>
+                  <summary>2-minute review guide</summary>
+                  <p>
+                    Open a project, create a task, change its status, and add a comment. Reload to
+                    check local persistence. Try search, filters, CSV export, and the mobile layout.
+                  </p>
+                  <p>
+                    This demo runs in your browser. Authentication, server authorization, MongoDB
+                    transactions, and API tests are implemented in the full-stack repository.
+                  </p>
+                  <a
+                    href="https://github.com/devstark7/orbit-workspace"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View source and setup instructions ↗
+                  </a>
+                  <button
+                    className="text-link"
+                    onClick={async () => {
+                      await api('/auth/demo', { method: 'POST' });
+                      window.location.reload();
+                    }}
+                  >
+                    Reset sample data
+                  </button>
+                </details>
+              </aside>
+            )}
             <main id="main-content" className="main-content" tabIndex={-1}>
               {loadError && (
                 <div className="load-error" role="alert">

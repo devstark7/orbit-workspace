@@ -1,0 +1,735 @@
+{
+  "activity": [
+    {
+      "_id": "6ae0d59b2ca67b767e643868",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643848",
+        "name": "Brand foundations",
+        "color": "peach"
+      },
+      "actor": {
+        "_id": "6ae0d5992ca67b767e64383d",
+        "name": "Maya Chen"
+      },
+      "action": "completed task",
+      "subject": "Document typography rules",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-27T15:47:23.644Z",
+      "updatedAt": "2026-10-27T15:47:23.644Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e64386a",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643844",
+        "name": "Website experience",
+        "color": "violet"
+      },
+      "actor": {
+        "_id": "6ae0d5992ca67b767e64383e",
+        "name": "Jordan Lee"
+      },
+      "action": "updated task",
+      "subject": "Build the component library",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-27T14:47:23.659Z",
+      "updatedAt": "2026-10-27T14:47:23.659Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e64386c",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643844",
+        "name": "Website experience",
+        "color": "violet"
+      },
+      "actor": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan"
+      },
+      "action": "created task",
+      "subject": "Write the launch story",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-27T13:47:23.663Z",
+      "updatedAt": "2026-10-27T13:47:23.663Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e64386e",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643848",
+        "name": "Brand foundations",
+        "color": "peach"
+      },
+      "actor": {
+        "_id": "6ae0d5992ca67b767e64383f",
+        "name": "Sam Rivera"
+      },
+      "action": "commented on",
+      "subject": "Create the icon guidelines",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-27T11:47:23.674Z",
+      "updatedAt": "2026-10-27T11:47:23.674Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e643870",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643844",
+        "name": "Website experience",
+        "color": "violet"
+      },
+      "actor": {
+        "_id": "6ae0d5992ca67b767e64383d",
+        "name": "Maya Chen"
+      },
+      "action": "completed task",
+      "subject": "Map the onboarding journey",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-27T08:47:23.689Z",
+      "updatedAt": "2026-10-27T08:47:23.689Z",
+      "__v": 0
+    }
+  ],
+  "user": {
+    "_id": "6ae0d5992ca67b767e64383c",
+    "name": "Alex Morgan",
+    "email": "alex.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid",
+    "role": "Member",
+    "demo": true
+  },
+  "projects": [
+    {
+      "_id": "6ae0d59b2ca67b767e643848",
+      "name": "Brand foundations",
+      "revision": 0,
+      "description": "Define the details that make us unmistakable. A living system for a growing product.",
+      "owner": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan",
+        "email": "alex.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "members": [
+        {
+          "_id": "6ae0d5992ca67b767e64383d",
+          "name": "Maya Chen",
+          "email": "maya.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+        },
+        {
+          "_id": "6ae0d5992ca67b767e64383e",
+          "name": "Jordan Lee",
+          "email": "jordan.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+        },
+        {
+          "_id": "6ae0d5992ca67b767e64383f",
+          "name": "Sam Rivera",
+          "email": "sam.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+        }
+      ],
+      "status": "Active",
+      "color": "peach",
+      "dueDate": "2026-11-19T16:47:23.574Z",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-27T16:47:23.574Z",
+      "updatedAt": "2026-10-27T16:47:23.574Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e643846",
+      "name": "Orbit mobile app",
+      "revision": 0,
+      "description": "Less friction, more flow. Bring the workspace to the moments between everything else.",
+      "owner": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan",
+        "email": "alex.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "members": [
+        {
+          "_id": "6ae0d5992ca67b767e64383d",
+          "name": "Maya Chen",
+          "email": "maya.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+        },
+        {
+          "_id": "6ae0d5992ca67b767e64383e",
+          "name": "Jordan Lee",
+          "email": "jordan.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+        },
+        {
+          "_id": "6ae0d5992ca67b767e64383f",
+          "name": "Sam Rivera",
+          "email": "sam.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+        }
+      ],
+      "status": "Active",
+      "color": "lime",
+      "dueDate": "2026-11-12T16:47:23.571Z",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-27T16:47:23.571Z",
+      "updatedAt": "2026-10-27T16:47:23.571Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e643844",
+      "name": "Website experience",
+      "revision": 0,
+      "description": "A considered digital home. Build a clear, expressive experience from first impression to final interaction.",
+      "owner": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan",
+        "email": "alex.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "members": [
+        {
+          "_id": "6ae0d5992ca67b767e64383d",
+          "name": "Maya Chen",
+          "email": "maya.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+        },
+        {
+          "_id": "6ae0d5992ca67b767e64383e",
+          "name": "Jordan Lee",
+          "email": "jordan.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+        },
+        {
+          "_id": "6ae0d5992ca67b767e64383f",
+          "name": "Sam Rivera",
+          "email": "sam.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+        }
+      ],
+      "status": "Active",
+      "color": "violet",
+      "dueDate": "2026-11-05T16:47:23.567Z",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-27T16:47:23.568Z",
+      "updatedAt": "2026-10-27T16:47:23.568Z",
+      "__v": 0
+    }
+  ],
+  "tasks": [
+    {
+      "_id": "6ae0d59b2ca67b767e643866",
+      "title": "Review the voice & tone",
+      "description": "Review messages from sign-in to task completion. Keep instructions clear, errors actionable, and success states calm.",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643848",
+        "name": "Brand foundations",
+        "owner": "6ae0d5992ca67b767e64383c",
+        "members": [
+          "6ae0d5992ca67b767e64383d",
+          "6ae0d5992ca67b767e64383e",
+          "6ae0d5992ca67b767e64383f"
+        ],
+        "color": "peach"
+      },
+      "assignedTo": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan",
+        "email": "alex.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "createdBy": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan"
+      },
+      "status": "Todo",
+      "priority": "Low",
+      "dueDate": "2026-10-26T16:47:23.628Z",
+      "completedAt": null,
+      "label": "Product",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-22T11:59:23.628Z",
+      "comments": [],
+      "updatedAt": "2026-10-22T11:59:23.628Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e643864",
+      "title": "Create the icon guidelines",
+      "description": "Choose a consistent stroke, size, and spacing system. Add accessible names to icon-only controls.",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643848",
+        "name": "Brand foundations",
+        "owner": "6ae0d5992ca67b767e64383c",
+        "members": [
+          "6ae0d5992ca67b767e64383d",
+          "6ae0d5992ca67b767e64383e",
+          "6ae0d5992ca67b767e64383f"
+        ],
+        "color": "peach"
+      },
+      "assignedTo": {
+        "_id": "6ae0d5992ca67b767e64383f",
+        "name": "Sam Rivera",
+        "email": "sam.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "createdBy": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan"
+      },
+      "status": "In Progress",
+      "priority": "Medium",
+      "dueDate": "2026-10-31T16:47:23.623Z",
+      "completedAt": null,
+      "label": "Design",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-22T07:11:23.623Z",
+      "comments": [],
+      "updatedAt": "2026-10-22T07:11:23.623Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e643862",
+      "title": "Document typography rules",
+      "description": "Set heading, body, label, and metadata scales. Verify long titles and local font loading on slow connections.",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643848",
+        "name": "Brand foundations",
+        "owner": "6ae0d5992ca67b767e64383c",
+        "members": [
+          "6ae0d5992ca67b767e64383d",
+          "6ae0d5992ca67b767e64383e",
+          "6ae0d5992ca67b767e64383f"
+        ],
+        "color": "peach"
+      },
+      "assignedTo": {
+        "_id": "6ae0d5992ca67b767e64383d",
+        "name": "Maya Chen",
+        "email": "maya.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "createdBy": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan"
+      },
+      "status": "Done",
+      "priority": "Medium",
+      "dueDate": "2026-10-26T16:47:23.619Z",
+      "completedAt": "2026-10-26T16:47:23.619Z",
+      "label": "Design",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-22T02:23:23.619Z",
+      "comments": [],
+      "updatedAt": "2026-10-22T02:23:23.619Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e643860",
+      "title": "Define the color system",
+      "description": "Define the neutral and accent scales with contrast in mind. Keep status text readable without relying on color alone.",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643848",
+        "name": "Brand foundations",
+        "owner": "6ae0d5992ca67b767e64383c",
+        "members": [
+          "6ae0d5992ca67b767e64383d",
+          "6ae0d5992ca67b767e64383e",
+          "6ae0d5992ca67b767e64383f"
+        ],
+        "color": "peach"
+      },
+      "assignedTo": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan",
+        "email": "alex.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "createdBy": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan"
+      },
+      "status": "Done",
+      "priority": "High",
+      "dueDate": "2026-10-22T16:47:23.615Z",
+      "completedAt": "2026-10-22T16:47:23.615Z",
+      "label": "Design",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-21T21:35:23.615Z",
+      "comments": [],
+      "updatedAt": "2026-10-21T21:35:23.615Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e64385e",
+      "title": "Test notification preferences",
+      "description": "Interview teammates about reminder frequency. Check that pausing reminders is easy and preferences are understandable.",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643846",
+        "name": "Orbit mobile app",
+        "owner": "6ae0d5992ca67b767e64383c",
+        "members": [
+          "6ae0d5992ca67b767e64383d",
+          "6ae0d5992ca67b767e64383e",
+          "6ae0d5992ca67b767e64383f"
+        ],
+        "color": "lime"
+      },
+      "assignedTo": {
+        "_id": "6ae0d5992ca67b767e64383f",
+        "name": "Sam Rivera",
+        "email": "sam.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "createdBy": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan"
+      },
+      "status": "Todo",
+      "priority": "Medium",
+      "dueDate": "2026-11-04T16:47:23.611Z",
+      "completedAt": null,
+      "label": "Research",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-21T16:47:23.611Z",
+      "comments": [],
+      "updatedAt": "2026-10-21T16:47:23.611Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e64385c",
+      "title": "Offline sync architecture",
+      "description": "Define how queued changes would reconcile after reconnecting. Document conflict cases before choosing a sync strategy.",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643846",
+        "name": "Orbit mobile app",
+        "owner": "6ae0d5992ca67b767e64383c",
+        "members": [
+          "6ae0d5992ca67b767e64383d",
+          "6ae0d5992ca67b767e64383e",
+          "6ae0d5992ca67b767e64383f"
+        ],
+        "color": "lime"
+      },
+      "assignedTo": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan",
+        "email": "alex.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "createdBy": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan"
+      },
+      "status": "Todo",
+      "priority": "High",
+      "dueDate": "2026-11-02T16:47:23.607Z",
+      "completedAt": null,
+      "label": "Engineering",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-21T11:59:23.607Z",
+      "comments": [],
+      "updatedAt": "2026-10-21T11:59:23.607Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e64385a",
+      "title": "Prototype the quick-add flow",
+      "description": "Prototype a task form that stays out of the way. Test sensible defaults, empty descriptions, and creating several tasks in a row.",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643846",
+        "name": "Orbit mobile app",
+        "owner": "6ae0d5992ca67b767e64383c",
+        "members": [
+          "6ae0d5992ca67b767e64383d",
+          "6ae0d5992ca67b767e64383e",
+          "6ae0d5992ca67b767e64383f"
+        ],
+        "color": "lime"
+      },
+      "assignedTo": {
+        "_id": "6ae0d5992ca67b767e64383d",
+        "name": "Maya Chen",
+        "email": "maya.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "createdBy": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan"
+      },
+      "status": "In Progress",
+      "priority": "High",
+      "dueDate": "2026-10-30T16:47:23.604Z",
+      "completedAt": null,
+      "label": "Design",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-21T07:11:23.604Z",
+      "comments": [],
+      "updatedAt": "2026-10-21T07:11:23.604Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e643858",
+      "title": "Set up navigation patterns",
+      "description": "Map the main navigation and project drill-down. Keep a clear way back and preserve readable task names on narrow screens.",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643846",
+        "name": "Orbit mobile app",
+        "owner": "6ae0d5992ca67b767e64383c",
+        "members": [
+          "6ae0d5992ca67b767e64383d",
+          "6ae0d5992ca67b767e64383e",
+          "6ae0d5992ca67b767e64383f"
+        ],
+        "color": "lime"
+      },
+      "assignedTo": {
+        "_id": "6ae0d5992ca67b767e64383e",
+        "name": "Jordan Lee",
+        "email": "jordan.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "createdBy": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan"
+      },
+      "status": "Done",
+      "priority": "Medium",
+      "dueDate": "2026-10-25T16:47:23.6Z",
+      "completedAt": "2026-10-25T16:47:23.6Z",
+      "label": "Engineering",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-21T02:23:23.6Z",
+      "comments": [],
+      "updatedAt": "2026-10-21T02:23:23.6Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e643856",
+      "title": "Write the launch story",
+      "description": "Explain what the workspace helps people do. Prepare a short product walkthrough with honest screenshots and setup instructions.",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643844",
+        "name": "Website experience",
+        "owner": "6ae0d5992ca67b767e64383c",
+        "members": [
+          "6ae0d5992ca67b767e64383d",
+          "6ae0d5992ca67b767e64383e",
+          "6ae0d5992ca67b767e64383f"
+        ],
+        "color": "violet"
+      },
+      "assignedTo": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan",
+        "email": "alex.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "createdBy": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan"
+      },
+      "status": "Todo",
+      "priority": "Low",
+      "dueDate": "2026-11-03T16:47:23.597Z",
+      "completedAt": null,
+      "label": "Product",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-20T21:35:23.597Z",
+      "comments": [],
+      "updatedAt": "2026-10-20T21:35:23.597Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e643854",
+      "title": "Accessibility & keyboard audit",
+      "description": "Walk through every workflow without a mouse. Check dialog focus, form labels, contrast, and reduced-motion behavior.",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643844",
+        "name": "Website experience",
+        "owner": "6ae0d5992ca67b767e64383c",
+        "members": [
+          "6ae0d5992ca67b767e64383d",
+          "6ae0d5992ca67b767e64383e",
+          "6ae0d5992ca67b767e64383f"
+        ],
+        "color": "violet"
+      },
+      "assignedTo": {
+        "_id": "6ae0d5992ca67b767e64383f",
+        "name": "Sam Rivera",
+        "email": "sam.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "createdBy": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan"
+      },
+      "status": "Todo",
+      "priority": "High",
+      "dueDate": "2026-11-01T16:47:23.594Z",
+      "completedAt": null,
+      "label": "Engineering",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-20T16:47:23.594Z",
+      "comments": [],
+      "updatedAt": "2026-10-20T16:47:23.594Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e643852",
+      "title": "Polish the empty states",
+      "description": "Write useful empty-state messages for projects, tasks, and search. Each state should offer one clear next step.",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643844",
+        "name": "Website experience",
+        "owner": "6ae0d5992ca67b767e64383c",
+        "members": [
+          "6ae0d5992ca67b767e64383d",
+          "6ae0d5992ca67b767e64383e",
+          "6ae0d5992ca67b767e64383f"
+        ],
+        "color": "violet"
+      },
+      "assignedTo": {
+        "_id": "6ae0d5992ca67b767e64383d",
+        "name": "Maya Chen",
+        "email": "maya.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "createdBy": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan"
+      },
+      "status": "Todo",
+      "priority": "Medium",
+      "dueDate": "2026-10-31T16:47:23.592Z",
+      "completedAt": null,
+      "label": "Design",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-20T11:59:23.592Z",
+      "comments": [],
+      "updatedAt": "2026-10-20T11:59:23.592Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e643850",
+      "title": "Design the dashboard experience",
+      "description": "Give the overview a clear information hierarchy. Connect the summary cards to filtered views and use real completion timestamps.",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643844",
+        "name": "Website experience",
+        "owner": "6ae0d5992ca67b767e64383c",
+        "members": [
+          "6ae0d5992ca67b767e64383d",
+          "6ae0d5992ca67b767e64383e",
+          "6ae0d5992ca67b767e64383f"
+        ],
+        "color": "violet"
+      },
+      "assignedTo": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan",
+        "email": "alex.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "createdBy": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan"
+      },
+      "status": "In Progress",
+      "priority": "High",
+      "dueDate": "2026-10-28T16:47:23.589Z",
+      "completedAt": null,
+      "label": "Design",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-20T07:11:23.589Z",
+      "comments": [],
+      "updatedAt": "2026-10-20T07:11:23.589Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e64384e",
+      "title": "Build the component library",
+      "description": "Create shared form fields, buttons, and dialogs. Document focus, disabled, loading, and validation behavior.",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643844",
+        "name": "Website experience",
+        "owner": "6ae0d5992ca67b767e64383c",
+        "members": [
+          "6ae0d5992ca67b767e64383d",
+          "6ae0d5992ca67b767e64383e",
+          "6ae0d5992ca67b767e64383f"
+        ],
+        "color": "violet"
+      },
+      "assignedTo": {
+        "_id": "6ae0d5992ca67b767e64383e",
+        "name": "Jordan Lee",
+        "email": "jordan.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "createdBy": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan"
+      },
+      "status": "In Progress",
+      "priority": "High",
+      "dueDate": "2026-10-29T16:47:23.586Z",
+      "completedAt": null,
+      "label": "Engineering",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-20T02:23:23.586Z",
+      "comments": [],
+      "updatedAt": "2026-10-20T02:23:23.586Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e64384c",
+      "title": "Explore the visual direction",
+      "description": "Explore a warmer visual language for the workspace. Compare typography, color, and contrast at desktop and phone sizes.",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643844",
+        "name": "Website experience",
+        "owner": "6ae0d5992ca67b767e64383c",
+        "members": [
+          "6ae0d5992ca67b767e64383d",
+          "6ae0d5992ca67b767e64383e",
+          "6ae0d5992ca67b767e64383f"
+        ],
+        "color": "violet"
+      },
+      "assignedTo": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan",
+        "email": "alex.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "createdBy": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan"
+      },
+      "status": "Done",
+      "priority": "High",
+      "dueDate": "2026-10-24T16:47:23.583Z",
+      "completedAt": "2026-10-24T16:47:23.583Z",
+      "label": "Design",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-19T21:35:23.583Z",
+      "comments": [],
+      "updatedAt": "2026-10-19T21:35:23.583Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ae0d59b2ca67b767e64384a",
+      "title": "Map the onboarding journey",
+      "description": "Outline the first-run experience from welcome to first task. Include the empty, loading, and error states so nobody gets stuck.",
+      "project": {
+        "_id": "6ae0d59b2ca67b767e643844",
+        "name": "Website experience",
+        "owner": "6ae0d5992ca67b767e64383c",
+        "members": [
+          "6ae0d5992ca67b767e64383d",
+          "6ae0d5992ca67b767e64383e",
+          "6ae0d5992ca67b767e64383f"
+        ],
+        "color": "violet"
+      },
+      "assignedTo": {
+        "_id": "6ae0d5992ca67b767e64383d",
+        "name": "Maya Chen",
+        "email": "maya.9f35a5b0-64dc-4de3-bb54-4a9c610d769d@demo.orbit.invalid"
+      },
+      "createdBy": {
+        "_id": "6ae0d5992ca67b767e64383c",
+        "name": "Alex Morgan"
+      },
+      "status": "Done",
+      "priority": "High",
+      "dueDate": "2026-10-23T16:47:23.581Z",
+      "completedAt": "2026-10-23T16:47:23.581Z",
+      "label": "Research",
+      "demoExpiresAt": "2026-10-28T16:47:21.829Z",
+      "createdAt": "2026-10-19T16:47:23.581Z",
+      "comments": [],
+      "updatedAt": "2026-10-19T16:47:23.581Z",
+      "__v": 0
+    }
+  ]
+}

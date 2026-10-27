@@ -4,7 +4,12 @@ export class ApiError extends Error {
     this.status = status;
   }
 }
+export const browserDemo = import.meta.env?.VITE_BROWSER_DEMO === 'true';
 export async function api(path, options = {}) {
+  if (browserDemo) {
+    const { demoApi } = await import('./browser-demo.js');
+    return demoApi(path, options);
+  }
   let response;
   try {
     response = await fetch('/api' + path, {
