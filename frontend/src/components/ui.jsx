@@ -1,8 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { X, ArrowUpRight, Orbit, Loader2, Check, AlertCircle } from 'lucide-react';
 import { initials } from '../lib/domain';
-
 export function Brand({ small = false }) {
   return (
     <span className={'brand ' + (small ? 'small' : '')}>
@@ -83,9 +82,22 @@ export function PageMotion({ children, className = '' }) {
   return (
     <motion.div
       className={className}
-      initial={reduced ? false : { opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      initial={
+        reduced
+          ? false
+          : {
+              opacity: 0,
+              y: 10,
+            }
+      }
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      transition={{
+        duration: 0.35,
+        ease: [0.22, 1, 0.36, 1],
+      }}
     >
       {children}
     </motion.div>
@@ -143,9 +155,19 @@ export function Modal({ title, subtitle, onClose, children, wide = false }) {
         aria-modal="true"
         aria-labelledby="dialog-title"
         className={`modal ${wide ? 'wide' : ''}`}
-        initial={{ opacity: 0, scale: 0.98, y: 12 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.2 }}
+        initial={{
+          opacity: 0,
+          scale: 0.98,
+          y: 12,
+        }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 0.2,
+        }}
       >
         <header className="modal-header">
           <div>
@@ -174,9 +196,18 @@ export function Toast({ toast, onClose }) {
         <motion.div
           className={`toast ${toast.error ? 'error' : ''}`}
           role={toast.error ? 'alert' : 'status'}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 10 }}
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          exit={{
+            opacity: 0,
+            y: 10,
+          }}
         >
           {toast.error ? <AlertCircle size={18} /> : <Check size={18} />}
           <span>{toast.message}</span>

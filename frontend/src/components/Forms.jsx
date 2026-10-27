@@ -1,17 +1,8 @@
-import React, { useState } from 'react';
-import {
-  Plus,
-  ArrowRight,
-  Send,
-  Trash2,
-  Check,
-  CalendarDays,
-  ExternalLink,
-  Copy,
-} from 'lucide-react';
-import { Modal, Spinner, Avatar, Priority, StatusBadge } from './ui';
+import { useState, useRef } from 'react';
+import { createSubmissionKey } from '../lib/submission';
+import { Plus, ArrowRight, Send, Trash2, Check, CalendarDays } from 'lucide-react';
+import { Modal, Spinner, Avatar, Priority } from './ui';
 import { STATUSES, PRIORITIES, LABELS, recordId, dateLabel, timeAgo } from '../lib/domain';
-
 export function ProjectForm({ onClose, onSave, onDelete, project }) {
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(''),
@@ -22,7 +13,10 @@ export function ProjectForm({ onClose, onSave, onDelete, project }) {
     setBusy(true);
     setError('');
     try {
-      await onSave({ ...Object.fromEntries(new FormData(e.currentTarget)), color });
+      await onSave({
+        ...Object.fromEntries(new FormData(e.currentTarget)),
+        color,
+      });
       onClose();
     } catch (err) {
       setError(err.message);
@@ -148,6 +142,8 @@ export function ProjectForm({ onClose, onSave, onDelete, project }) {
   );
 }
 export function TaskForm({ onClose, onSave, projects, projectId, task, status = 'Todo' }) {
+  const submission = useRef(null);
+  if (!submission.current) submission.current = createSubmissionKey();
   const [selected, setSelected] = useState(
       recordId(task?.project) ||
         projectId ||
@@ -166,6 +162,7 @@ export function TaskForm({ onClose, onSave, projects, projectId, task, status = 
     try {
       const body = Object.fromEntries(new FormData(e.currentTarget));
       if (task) delete body.project;
+      else body.clientRequestId = submission.current(body);
       await onSave(body);
       onClose();
     } catch (err) {

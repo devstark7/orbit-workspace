@@ -28,7 +28,8 @@ function date(value) {
     new Date(value.slice(0, 10)).toISOString().slice(0, 10) !== value.slice(0, 10)
   )
     throw new HttpError(400, 'Invalid due date.');
-  return new Date(value);
+  // A due date is a calendar day, not an instant in the visitor's timezone.
+  return new Date(value.slice(0, 10) + 'T00:00:00.000Z');
 }
 function email(value) {
   value = text(value, 'Email', 254, true).toLowerCase();

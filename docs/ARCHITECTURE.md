@@ -57,6 +57,14 @@ The top-level workspace owns user identity, projects, tasks, and activity. API a
 
 Task moves update the board optimistically. A per-task in-flight guard prevents overlapping moves, then the client reloads authoritative server data. A failed write reloads data and displays an error. Other actions wait for the server before closing their dialogs. Loading, empty, and failed-fetch states are explicit.
 
+New-task forms retain a request ID across retries of the same payload. The server scopes it to the creator, stores a hash of normalized task details, and enforces a partial unique index. An identical retry returns the original task without repeating its activity event; reusing the ID for different content returns 409. Editing a failed form's details generates a fresh request ID.
+
+Project and task writes execute in MongoDB transactions using Mongoose's transaction context propagation. Activity writes are in the same transaction, and responses are sent only after commit. A project revision write coordinates mutations with concurrent project deletion or archiving. Transaction callbacks reload their documents when the driver retries a write conflict. Local development and integration tests use a single-node replica set; Atlas and other production replica sets are supported. Standalone MongoDB is rejected at startup.
+
+Due dates are normalized to midnight UTC as a storage convention, but their YYYY-MM-DD portion represents a calendar day. The UI formats that day independently of timezone and compares it with the visitor's local calendar date. Completion timestamps are instants and remain bucketed in the visitor's local time.
+
+The sidebar, settings screen, and command palette are separate components. Styles are divided by responsibility with explicit CSS layers, preserving the established cascade.
+
 The client is deliberately small: no global state library, analytics tracker, paid AI service, or decorative chart dependency. Motion handles transitions; dnd-kit handles pointer drag. Keyboard users can change the same status in a labeled selector. Fonts are bundled locally. The orbital artwork is CSS and SVG.
 
 ## Demo lifecycle
@@ -71,7 +79,7 @@ Development without `MONGO_URI` starts a real temporary MongoDB process using `m
 - **Single-service rate limiting:** default in-memory counters do not span replicas. Use Redis or an equivalent shared store before scaling horizontally.
 - **Bounded portfolio data:** lists load the workspace together. Add cursor pagination and server-side search for large teams.
 - **No email delivery:** adding a known user by email grants membership. This is not an emailed invitation workflow. Password reset and email verification require an email provider and abuse controls.
-- **No distributed transactions:** related records are changed sequentially. For stronger crash/race guarantees, use MongoDB replica-set transactions, particularly around cascading project deletion and audit writes.
+- **Transaction dependency:** replica-set or sharded MongoDB is required. Deployments must configure a suitable persistent database and handle operational backup/restore. The supplied Docker recipe remains unverified on this host because the Docker engine is unavailable.
 - **Basic session lifecycle:** signing-secret rotation invalidates sessions. Logout revokes all sessions for the user; per-device session management is future work.
 - **Audit scope:** the feed records product actions, not a tamper-proof compliance log. Demo entries are fictional seed data.
 - **Hosting:** containers and deployment configuration are provided; they must be exercised against the actual hosting provider before claiming a live deployment.

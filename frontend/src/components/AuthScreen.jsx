@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -11,7 +11,6 @@ import {
 import { motion } from 'motion/react';
 import { Brand, Spinner } from './ui';
 import { api } from '../lib/api';
-
 export default function AuthScreen({ onAuth }) {
   const [mode, setMode] = useState('login'),
     [busy, setBusy] = useState(''),
@@ -60,8 +59,14 @@ export default function AuthScreen({ onAuth }) {
           <div className="visual-orb" />
           <motion.div
             className="floating-note note-one"
-            animate={{ y: [0, -9, 0], rotate: [-7, -5, -7] }}
-            transition={{ duration: 6, repeat: Infinity }}
+            animate={{
+              y: [0, -9, 0],
+              rotate: [-7, -5, -7],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+            }}
           >
             <span className="note-icon">
               <Layers size={18} />
@@ -76,8 +81,14 @@ export default function AuthScreen({ onAuth }) {
           </motion.div>
           <motion.div
             className="floating-note note-two"
-            animate={{ y: [0, 8, 0], rotate: [6, 4, 6] }}
-            transition={{ duration: 7, repeat: Infinity }}
+            animate={{
+              y: [0, 8, 0],
+              rotate: [6, 4, 6],
+            }}
+            transition={{
+              duration: 7,
+              repeat: Infinity,
+            }}
           >
             <span className="tiny-avatars">
               <i>AM</i>

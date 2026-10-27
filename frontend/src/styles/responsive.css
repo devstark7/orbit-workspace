@@ -1,0 +1,1483 @@
+@media (min-width: 1550px) {
+  .main-content {
+    padding-top: 38px;
+  }
+  .overview-banner {
+    min-height: 270px;
+  }
+  .banner-copy {
+    padding: 32px 38px;
+  }
+  .banner-copy h2 {
+    font-size: 38px;
+  }
+  .banner-copy > p {
+    font-size: 12px;
+  }
+  .banner-kicker {
+    font-size: 9px;
+  }
+  .banner-button {
+    font-size: 12px;
+  }
+  .stat-card {
+    padding: 20px 23px;
+  }
+  .stat-card > div {
+    font-size: 12px;
+  }
+  .stat-card > strong {
+    font-size: 35px;
+  }
+  .stat-card footer {
+    font-size: 10px;
+  }
+  .project-card {
+    padding: 22px;
+  }
+  .project-card h3 {
+    font-size: 16px;
+  }
+  .project-card > p {
+    font-size: 11px;
+    min-height: 37px;
+  }
+  .section-heading h2 {
+    font-size: 18px;
+  }
+  .section-heading p {
+    font-size: 11px;
+  }
+  .project-date {
+    font-size: 10px;
+  }
+  .project-progress-label,
+  .project-progress-label b {
+    font-size: 10px;
+  }
+  .task-table td {
+    font-size: 11px;
+  }
+  .table-task-title {
+    font-size: 12px;
+  }
+  .task-table th {
+    font-size: 10px;
+  }
+  .task-table .status-badge,
+  .task-table .priority {
+    font-size: 10px;
+  }
+  .activity-feed.compact article {
+    padding: 12px 0;
+  }
+  .activity-feed article p,
+  .activity-feed article > div > span {
+    font-size: 11px;
+  }
+  .activity-feed article time {
+    font-size: 9px;
+  }
+  .bar-chart {
+    height: 155px;
+  }
+  .momentum-panel,
+  .activity-panel {
+    padding: 24px 24px 0;
+  }
+  .chart-footer {
+    font-size: 10px;
+  }
+  .task-card > p {
+    font-size: 11px;
+  }
+  .task-title {
+    font-size: 14px;
+  }
+  .task-card-meta > span:last-child,
+  .task-card .priority {
+    font-size: 10px;
+  }
+  .board-column h3 {
+    font-size: 13px;
+  }
+  .task-card {
+    padding: 17px;
+  }
+  .task-card footer .avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 9px;
+  }
+  .label-tag {
+    font-size: 10px;
+  }
+  .project-card > footer > span:last-child {
+    font-size: 10px;
+  }
+  .project-card > footer > .avatar-group .avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 215px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .workspace-main {
+    margin-left: 215px;
+    width: calc(100% - 215px);
+  }
+  .main-content {
+    padding: 27px 25px 20px;
+  }
+  .topbar {
+    padding: 0 25px;
+  }
+  .profile-button {
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .workspace-badge {
+    display: none;
+  }
+  .banner-copy {
+    padding-left: 25px;
+  }
+  .banner-copy h2 {
+    font-size: 29px;
+  }
+  .orbit-art {
+    right: -2%;
+    width: 50%;
+  }
+  .art-sphere {
+    width: 135px;
+    height: 135px;
+  }
+  .orbit-path {
+    width: 270px;
+    height: 125px;
+  }
+  .path-c {
+    width: 190px;
+    height: 165px;
+  }
+  .project-grid {
+    gap: 12px;
+  }
+  .project-card {
+    padding: 15px;
+  }
+  .project-date {
+    font-size: 7px;
+  }
+  .stat-card {
+    padding: 13px;
+  }
+  .stat-card > div {
+    font-size: 9px;
+  }
+  .stat-icon {
+    width: 25px;
+    height: 25px;
+  }
+  .insight-grid {
+    gap: 15px;
+    grid-template-columns: minmax(0, 1.5fr) minmax(230px, 1fr);
+  }
+  .today-date {
+    display: none;
+  }
+  .topbar-right {
+    gap: 9px;
+  }
+  .project-grid .project-top {
+    gap: 5px;
+  }
+  .kanban-board {
+    gap: 12px;
+  }
+  .toolbar-left,
+  .toolbar-filters {
+    gap: 8px;
+  }
+  .task-toolbar .input-search input {
+    max-width: 100px;
+  }
+  .task-toolbar {
+    align-items: flex-start;
+  }
+  .sidebar .brand {
+    font-size: 28px;
+  }
+  .auth-story {
+    padding: 40px;
+  }
+  .auth-form-side {
+    padding: 30px;
+  }
+  .story-copy h1 {
+    font-size: 54px;
+  }
+  .story-kicker {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+  .floating-note {
+    padding: 10px;
+  }
+  .note-one {
+    left: -10px;
+  }
+  .note-two {
+    right: -10px;
+  }
+  .auth-visual {
+    margin-top: 30px;
+  }
+  .visual-ring {
+    width: 290px;
+  }
+  .floating-note b {
+    font-size: 9px;
+  }
+  .floating-note small {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .sidebar {
+    width: 200px;
+    padding: 24px 13px 0;
+  }
+  .workspace-main {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+  }
+  .sidebar-brand {
+    padding: 0 6px;
+    margin-bottom: 27px;
+  }
+  .sidebar-search {
+    margin-bottom: 24px;
+  }
+  .nav-item {
+    padding: 10px;
+    font-size: 10px;
+    gap: 9px;
+  }
+  .sidebar-projects button {
+    font-size: 9px;
+    gap: 9px;
+    padding: 8px 10px;
+  }
+  .workspace-select b {
+    font-size: 10px;
+  }
+  .workspace-select small {
+    font-size: 8px;
+  }
+  .profile-button {
+    width: calc(100% + 26px);
+    margin-left: -13px;
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+  .profile-button small {
+    font-size: 7px;
+  }
+  .main-content {
+    padding: 24px 22px 20px;
+  }
+  .topbar {
+    height: 65px;
+    padding: 0 22px;
+  }
+  .page-intro h1 {
+    font-size: 28px;
+  }
+  .page-intro p {
+    font-size: 10px;
+  }
+  .page-intro .btn {
+    font-size: 10px;
+    min-height: 36px;
+    padding: 9px 12px;
+  }
+  .overview-banner {
+    min-height: 225px;
+  }
+  .banner-copy h2 {
+    font-size: 26px;
+  }
+  .banner-copy {
+    padding: 24px;
+  }
+  .banner-copy > p {
+    font-size: 9px;
+  }
+  .banner-pill {
+    right: 17px;
+    bottom: 17px;
+    font-size: 7px;
+  }
+  .orbit-art {
+    right: -6%;
+    width: 48%;
+  }
+  .satellite-one {
+    left: 5%;
+    width: 32px;
+    height: 32px;
+  }
+  .satellite-two {
+    right: 2%;
+    height: 28px;
+    width: 28px;
+  }
+  .art-caption {
+    font-size: 5px;
+    left: 30%;
+  }
+  .art-coordinate {
+    font-size: 4px;
+    left: 10%;
+  }
+  .stat-grid {
+    gap: 10px;
+  }
+  .stat-card > div {
+    font-size: 8px;
+  }
+  .stat-card > strong {
+    font-size: 27px;
+  }
+  .stat-card footer {
+    font-size: 7px;
+  }
+  .stat-icon {
+    width: 23px;
+    height: 23px;
+  }
+  .stat-icon svg {
+    width: 14px;
+  }
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .projects-section .project-grid > .project-card:last-child:nth-child(3) {
+    display: none;
+  }
+  .insight-grid {
+    grid-template-columns: 1fr;
+  }
+  .activity-panel {
+    display: none;
+  }
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+  .kanban-board {
+    grid-template-columns: repeat(3, minmax(215px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 12px;
+  }
+  .board-column {
+    min-width: 215px;
+  }
+  .board-footnote {
+    font-size: 7px;
+  }
+  .topbar-right > .icon-button:first-of-type {
+    display: none;
+  }
+  .workspace-footer {
+    font-size: 6px;
+  }
+  .auth-story {
+    padding: 35px;
+  }
+  .auth-form-side {
+    padding: 28px;
+  }
+  .story-copy h1 {
+    font-size: 46px;
+    letter-spacing: -2.1px;
+  }
+  .auth-form h2 {
+    font-size: 28px;
+  }
+  .story-copy p {
+    font-size: 11px;
+  }
+  .auth-top {
+    font-size: 7px;
+  }
+  .auth-story footer {
+    font-size: 5px;
+  }
+  .story-kicker {
+    font-size: 6px;
+  }
+  .visual-orb {
+    width: 140px;
+    height: 140px;
+  }
+  .visual-ring {
+    width: 245px;
+    height: 135px;
+  }
+  .floating-note {
+    padding: 9px;
+    gap: 7px;
+  }
+  .floating-note b {
+    font-size: 8px;
+  }
+  .floating-note small {
+    font-size: 6px;
+  }
+  .note-icon {
+    height: 25px;
+    width: 25px;
+  }
+  .note-check {
+    margin-left: 0;
+  }
+  .note-one {
+    left: -15px;
+  }
+  .note-two {
+    right: -15px;
+  }
+  .tiny-avatars i {
+    height: 20px;
+    width: 20px;
+  }
+  .auth-bottom > span:nth-child(2) {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 760px) {
+  .sidebar {
+    width: 238px;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    box-shadow: 10px 0 60px #12241f33;
+    padding: 25px 20px 0;
+  }
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  .workspace-main {
+    margin-left: 0;
+    width: 100%;
+  }
+  .mobile-scrim {
+    position: fixed;
+    inset: 0;
+    background: #12241f66;
+    z-index: 29;
+    backdrop-filter: blur(3px);
+  }
+  .breadcrumbs > .icon-button {
+    display: inline-flex;
+    margin-left: -7px;
+    margin-right: 1px;
+  }
+  .topbar {
+    height: 62px;
+    padding: 0 20px;
+  }
+  .topbar-right {
+    gap: 6px;
+  }
+  .main-content {
+    padding: 26px 20px 20px;
+  }
+  .sidebar-brand .workspace-badge {
+    display: block;
+  }
+  .sidebar .brand {
+    font-size: 30px;
+  }
+  .workspace-select b {
+    font-size: 11px;
+  }
+  .workspace-select small {
+    font-size: 9px;
+  }
+  .nav-item {
+    font-size: 12px;
+    padding: 11px 13px;
+  }
+  .sidebar-projects button {
+    font-size: 11px;
+    padding: 10px;
+  }
+  .sidebar-project-heading,
+  .nav-caption {
+    font-size: 9px;
+  }
+  .profile-button {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .profile-button b {
+    font-size: 11px;
+  }
+  .profile-button small {
+    font-size: 8px;
+  }
+  .stat-card > div {
+    font-size: 9px;
+  }
+  .stat-card > strong {
+    font-size: 28px;
+  }
+  .stat-card footer {
+    font-size: 8px;
+  }
+  .stat-card {
+    padding: 15px;
+  }
+  .project-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .projects-section .project-grid > .project-card:last-child:nth-child(3) {
+    display: block;
+  }
+  .project-card {
+    padding: 13px;
+  }
+  .project-date {
+    display: none;
+  }
+  .project-top > svg {
+    margin-left: auto;
+  }
+  .project-card h3 {
+    font-size: 12px;
+  }
+  .project-card > p {
+    font-size: 8px;
+  }
+  .insight-grid {
+    grid-template-columns: minmax(0, 1.4fr) minmax(230px, 1fr);
+  }
+  .activity-panel {
+    display: block;
+  }
+  .overview-banner {
+    min-height: 237px;
+  }
+  .banner-copy h2 {
+    font-size: 29px;
+  }
+  .banner-copy {
+    padding: 25px;
+  }
+  .orbit-art {
+    width: 48%;
+    right: 0;
+  }
+  .art-sphere {
+    width: 130px;
+    height: 130px;
+  }
+  .orbit-path {
+    width: 250px;
+  }
+  .satellite-one {
+    left: 10%;
+  }
+  .satellite-two {
+    right: 9%;
+  }
+  .page-intro h1 {
+    font-size: 30px;
+  }
+  .page-intro p {
+    font-size: 11px;
+  }
+  .toast {
+    left: 50%;
+  }
+  .auth-page {
+    grid-template-columns: 1fr;
+  }
+  .auth-story {
+    display: none;
+  }
+  .auth-form-side {
+    min-height: 100dvh;
+    padding: 25px;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .auth-form {
+    padding: 55px 0;
+    max-width: 365px;
+  }
+  .auth-top {
+    font-size: 8px;
+  }
+  .auth-form h2 {
+    font-size: 36px;
+  }
+  .auth-form > .eyebrow {
+    font-size: 8px;
+  }
+  .auth-form > p {
+    font-size: 12px;
+  }
+  .auth-form input {
+    font-size: 13px;
+  }
+  .auth-form label {
+    font-size: 11px;
+  }
+  .demo-button {
+    font-size: 12px;
+    min-height: 47px;
+  }
+  .auth-submit {
+    font-size: 12px;
+    min-height: 46px;
+  }
+  .auth-form > .auth-switch {
+    font-size: 10px;
+  }
+  .auth-switch > button {
+    font-size: 10px;
+  }
+  .demo-caption {
+    font-size: 9px;
+  }
+  .auth-bottom > span:nth-child(2) {
+    font-size: 8px;
+  }
+  .auth-form-side > .auth-top::before {
+    content: 'orbit.';
+    font-family: 'Manrope Variable', sans-serif;
+    float: left;
+    font-size: 19px;
+    font-weight: 700;
+    color: #587740;
+    line-height: 1;
+  }
+  .auth-form-side > .auth-top {
+    text-align: right;
+  }
+  .workspace-footer {
+    font-size: 7px;
+  }
+  .task-toolbar .input-search input {
+    max-width: 130px;
+  }
+  .task-toolbar {
+    gap: 15px;
+  }
+  .board-footnote {
+    font-size: 8px;
+  }
+  .settings-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .settings-panel {
+    padding: 18px;
+  }
+  .setting-row {
+    gap: 10px;
+  }
+  .settings-profile {
+    flex-wrap: wrap;
+  }
+  .settings-profile .role-pill {
+    margin-left: 0;
+  }
+  .settings-profile b {
+    font-size: 11px;
+  }
+  .setting-row h3 {
+    font-size: 11px;
+  }
+  .setting-row p {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 580px) {
+  .main-content {
+    padding: 23px 16px 18px;
+  }
+  .topbar {
+    padding: 0 16px;
+  }
+  .topbar-right > .demo-badge {
+    font-size: 8px;
+    padding: 4px 5px;
+  }
+  .topbar-right > .icon-button {
+    width: 28px;
+  }
+  .topbar-separator {
+    display: none;
+  }
+  .breadcrumb-home {
+    display: none;
+  }
+  .breadcrumbs {
+    gap: 5px;
+  }
+  .breadcrumbs > svg {
+    display: none;
+  }
+  .breadcrumbs > span:last-child {
+    font-size: 10px;
+    max-width: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .page-intro {
+    align-items: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .page-intro h1 {
+    font-size: 27px;
+    letter-spacing: -1px;
+    gap: 7px;
+  }
+  .greeting-sun {
+    font-size: 25px;
+  }
+  .page-intro p {
+    font-size: 10px;
+    max-width: 320px;
+    line-height: 1.7;
+  }
+  .page-intro .eyebrow {
+    font-size: 7px;
+    letter-spacing: 1.3px;
+    margin-bottom: 8px;
+  }
+  .page-intro > .btn,
+  .intro-buttons {
+    margin-top: 5px;
+  }
+  .page-intro > .btn {
+    min-height: 33px;
+    padding: 8px 11px;
+    font-size: 9px;
+  }
+  .overview-banner {
+    min-height: 215px;
+    margin-bottom: 18px;
+  }
+  .banner-copy {
+    padding: 22px 19px;
+  }
+  .banner-kicker {
+    font-size: 5.5px;
+    letter-spacing: 1.05px;
+  }
+  .banner-copy h2 {
+    font-size: 25px;
+    margin-top: 15px;
+    letter-spacing: -1px;
+  }
+  .banner-copy > p {
+    font-size: 8px;
+    line-height: 1.8;
+  }
+  .banner-button {
+    font-size: 8px;
+    gap: 9px;
+    margin-top: 15px;
+  }
+  .banner-button > svg {
+    width: 13px;
+  }
+  .orbit-art {
+    width: 45%;
+    right: -7%;
+    top: 7%;
+    height: 90%;
+  }
+  .art-sphere {
+    width: 92px;
+    height: 92px;
+  }
+  .orbit-path {
+    width: 172px;
+    height: 85px;
+  }
+  .path-c {
+    width: 140px;
+    height: 125px;
+  }
+  .satellite-one {
+    width: 25px;
+    height: 25px;
+    left: 0;
+    top: 26%;
+  }
+  .satellite-one > svg {
+    width: 13px;
+  }
+  .satellite-two {
+    width: 23px;
+    height: 23px;
+    right: 0;
+    bottom: 23%;
+  }
+  .satellite-two > svg {
+    width: 12px;
+  }
+  .banner-pill {
+    font-size: 5.5px;
+    padding: 4px 7px;
+    bottom: 13px;
+    right: 12px;
+    gap: 5px;
+  }
+  .banner-pill .live-dot {
+    width: 3px;
+    height: 3px;
+  }
+  .art-coordinate {
+    font-size: 3px;
+    letter-spacing: 0.8px;
+    left: 0;
+    bottom: 12%;
+  }
+  .art-caption {
+    font-size: 4px;
+    letter-spacing: 1px;
+    left: 12%;
+    top: 12%;
+  }
+  .stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 25px;
+  }
+  .stat-card {
+    padding: 14px 15px;
+  }
+  .stat-card > div {
+    font-size: 10px;
+  }
+  .stat-icon {
+    height: 27px;
+    width: 27px;
+  }
+  .stat-card > strong {
+    font-size: 29px;
+  }
+  .stat-card footer {
+    font-size: 8px;
+  }
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  .projects-section .project-grid > .project-card:last-child:nth-child(3) {
+    display: block;
+  }
+  .project-card {
+    padding: 18px 19px;
+  }
+  .project-card h3 {
+    font-size: 15px;
+  }
+  .project-card > p {
+    font-size: 11px;
+    margin-bottom: 18px;
+    min-height: auto;
+  }
+  .project-date {
+    display: block;
+    font-size: 9px;
+  }
+  .project-top > svg {
+    margin-left: 3px;
+  }
+  .project-progress-label,
+  .project-progress-label b {
+    font-size: 10px;
+  }
+  .project-card > footer > span:last-child {
+    font-size: 10px;
+  }
+  .project-card > footer > .avatar-group .avatar {
+    width: 27px;
+    height: 27px;
+    font-size: 8px;
+  }
+  .project-card .project-icon {
+    width: 36px;
+    height: 36px;
+  }
+  .section-heading h2 {
+    font-size: 16px;
+  }
+  .section-heading > .text-link {
+    font-size: 9px;
+  }
+  .insight-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .momentum-panel,
+  .activity-panel {
+    padding: 20px 19px 0;
+  }
+  .activity-feed.compact article {
+    padding: 11px 0;
+  }
+  .activity-feed article p,
+  .activity-feed article > div > span {
+    font-size: 11px;
+  }
+  .activity-feed article time {
+    font-size: 9px;
+  }
+  .activity-feed article > .avatar {
+    width: 31px;
+    height: 31px;
+    font-size: 9px;
+  }
+  .activity-link {
+    font-size: 10px;
+    padding: 15px 0;
+  }
+  .chart-summary > strong > span {
+    font-size: 10px;
+  }
+  .chart-key {
+    font-size: 8px;
+  }
+  .chart-footer {
+    font-size: 9px;
+  }
+  .bar-chart {
+    height: 150px;
+  }
+  .bar-column > span {
+    font-size: 8px;
+  }
+  .task-table th:first-child {
+    min-width: 220px;
+  }
+  .task-table .status-badge {
+    font-size: 9px;
+  }
+  .table-task-title {
+    font-size: 11px;
+  }
+  .my-tasks-panel > .section-heading {
+    padding: 18px 16px 0;
+    align-items: flex-start;
+  }
+  .my-tasks-panel .section-heading h2 {
+    font-size: 14px;
+  }
+  .my-tasks-panel .section-heading p {
+    font-size: 9px;
+  }
+  .my-tasks-panel .section-heading > .text-link {
+    white-space: nowrap;
+    font-size: 8px;
+    margin-top: 2px;
+  }
+  .task-table th {
+    font-size: 9px;
+  }
+  .task-table td {
+    font-size: 10px;
+  }
+  .workspace-footer {
+    font-size: 6px;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .workspace-footer > span:last-child {
+    max-width: 110px;
+    text-align: right;
+  }
+  .workspace-footer > span {
+    gap: 5px;
+  }
+  .collection-toolbar {
+    gap: 12px;
+    align-items: stretch;
+    padding-bottom: 16px;
+  }
+  .collection-toolbar > .input-search {
+    width: 100%;
+  }
+  .collection-toolbar > .input-search > input {
+    max-width: none;
+    width: 100%;
+  }
+  .segmented {
+    gap: 2px;
+    flex-wrap: wrap;
+  }
+  .segmented button {
+    font-size: 9px;
+    padding: 6px 8px;
+  }
+  .task-toolbar {
+    padding-bottom: 14px;
+    margin-top: 8px;
+  }
+  .toolbar-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .toolbar-filters {
+    width: 100%;
+    gap: 6px;
+  }
+  .toolbar-filters .input-search {
+    flex: 1;
+    min-width: 100px;
+  }
+  .toolbar-filters .input-search > input {
+    width: 100%;
+    max-width: 100%;
+  }
+  .toolbar-filters > select {
+    font-size: 8px;
+    max-width: 100px;
+  }
+  .toolbar-filters > .icon-button {
+    width: 26px;
+  }
+  .view-toggle button {
+    padding: 5px 7px;
+    font-size: 8px;
+  }
+  .view-toggle > button > svg {
+    width: 13px;
+  }
+  .kanban-board {
+    grid-template-columns: repeat(3, 265px);
+    gap: 12px;
+    scroll-snap-type: x proximity;
+  }
+  .board-column {
+    scroll-snap-align: start;
+  }
+  .task-card {
+    padding: 16px;
+  }
+  .task-title {
+    font-size: 13px;
+  }
+  .task-card > p {
+    font-size: 10px;
+  }
+  .task-card-meta > span:last-child,
+  .task-card .priority {
+    font-size: 9px;
+  }
+  .task-card footer .avatar {
+    width: 26px;
+    height: 26px;
+    font-size: 8px;
+  }
+  .label-tag {
+    font-size: 9px;
+  }
+  .board-column h3 {
+    font-size: 12px;
+  }
+  .board-footnote {
+    flex-direction: column;
+    gap: 5px;
+    font-size: 8px;
+  }
+  .board-footnote > span:last-child {
+    text-align: left;
+  }
+  .project-meta {
+    gap: 8px;
+    font-size: 9px;
+  }
+  .project-meta .text-link {
+    font-size: 9px;
+  }
+  .project-meta .meta-divider {
+    margin: 0 3px;
+  }
+  .project-status {
+    font-size: 8px;
+    margin-left: 0;
+  }
+  .project-meta .avatar-group .avatar {
+    width: 23px;
+    height: 23px;
+    font-size: 7px;
+  }
+  .activity-full {
+    padding: 20px;
+  }
+  .activity-full .activity-feed p,
+  .activity-full .activity-feed article > div > span {
+    font-size: 11px;
+    white-space: normal;
+  }
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+  .settings-panel {
+    padding: 22px;
+  }
+  .settings-profile {
+    flex-wrap: nowrap;
+  }
+  .settings-profile .role-pill {
+    margin-left: auto;
+  }
+  .setting-row h3 {
+    font-size: 12px;
+  }
+  .setting-row p {
+    font-size: 10px;
+  }
+  .modal-backdrop {
+    padding: 12px;
+    align-items: center;
+  }
+  .modal {
+    max-height: calc(100dvh - 24px);
+    border-radius: 13px;
+  }
+  .modal-header {
+    padding: 22px 20px 18px;
+  }
+  .modal-header h2 {
+    font-size: 22px;
+    line-height: 1.4;
+  }
+  .modal-header p {
+    font-size: 10px;
+  }
+  .modal-header .eyebrow {
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+  .modal-form {
+    padding: 19px 20px 0;
+    gap: 16px;
+  }
+  .modal-footer {
+    padding: 16px 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  .modal-form input,
+  .modal-form select,
+  .modal-form textarea {
+    font-size: 16px;
+  }
+  .modal-form label {
+    font-size: 11px;
+  }
+  .form-two {
+    gap: 12px;
+  }
+  .task-detail {
+    padding: 20px;
+  }
+  .detail-description {
+    font-size: 12px;
+  }
+  .detail-properties {
+    gap: 16px;
+  }
+  .detail-actions {
+    gap: 8px;
+  }
+  .detail-actions select {
+    font-size: 11px;
+  }
+  .detail-actions .btn {
+    font-size: 9px;
+    min-height: 31px;
+    padding: 7px 9px;
+  }
+  .comments textarea {
+    font-size: 16px;
+  }
+  .command-input input {
+    font-size: 14px;
+  }
+  .command-palette {
+    padding: 16px;
+  }
+  .command-input kbd {
+    display: none;
+  }
+  .command-results > button {
+    font-size: 12px;
+  }
+  .command-results > button small {
+    font-size: 9px;
+  }
+  .toast {
+    bottom: 15px;
+    font-size: 11px;
+    width: max-content;
+  }
+  .auth-form-side {
+    padding: 24px;
+  }
+  .auth-form {
+    padding: 55px 0;
+  }
+  .auth-form h2 {
+    font-size: 35px;
+  }
+  .auth-top {
+    font-size: 6px;
+  }
+  .auth-form input {
+    font-size: 16px;
+  }
+  .auth-bottom > span:nth-child(2) {
+    font-size: 7px;
+  }
+  .auth-bottom > svg {
+    width: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.app-shell:has(.toggle.on[aria-label='Reduce motion']) .orbit-satellite {
+  animation: none;
+}
+
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 225px;
+  }
+  .workspace-main {
+    margin-left: 225px;
+    width: calc(100% - 225px);
+  }
+  .nav-item {
+    font-size: 12px;
+  }
+  .project-card {
+    padding: 17px;
+  }
+  .project-grid {
+    gap: 13px;
+  }
+  .project-card h3 {
+    font-size: 14px;
+  }
+  .project-card > p {
+    font-size: 11px;
+  }
+  .stat-card > div {
+    font-size: 11px;
+  }
+  .stat-card footer {
+    font-size: 9px;
+  }
+  .project-date {
+    font-size: 9px;
+  }
+  .insight-grid {
+    grid-template-columns: 1fr;
+  }
+  .activity-panel {
+    display: none;
+  }
+  .auth-top {
+    font-size: 8px;
+  }
+  .floating-note b {
+    font-size: 10px;
+  }
+  .floating-note small {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .sidebar {
+    width: 210px;
+  }
+  .workspace-main {
+    margin-left: 210px;
+    width: calc(100% - 210px);
+  }
+  .sidebar-projects button {
+    font-size: 10px;
+  }
+  .page-intro p {
+    font-size: 12px;
+  }
+  .stat-card > div {
+    font-size: 10px;
+  }
+  .stat-card footer {
+    font-size: 8px;
+  }
+  .banner-copy > p {
+    font-size: 11px;
+  }
+  .auth-story > footer {
+    font-size: 5px;
+  }
+  .story-kicker {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 760px) {
+  .sidebar {
+    width: 238px;
+  }
+  .workspace-main {
+    margin-left: 0;
+    width: 100%;
+  }
+  .nav-item {
+    font-size: 13px;
+  }
+  .sidebar-projects button {
+    font-size: 12px;
+  }
+  .auth-form input {
+    font-size: 16px;
+  }
+  .auth-top {
+    font-size: 9px;
+  }
+  .auth-bottom > span:nth-child(2) {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 580px) {
+  .page-intro p {
+    font-size: 12px;
+    max-width: 100%;
+  }
+  .page-intro h1 {
+    font-size: 27px;
+  }
+  .banner-copy > p {
+    font-size: 10px;
+    max-width: 205px;
+  }
+  .banner-copy h2 {
+    font-size: 25px;
+  }
+  .banner-kicker {
+    font-size: 6px;
+  }
+  .banner-button {
+    font-size: 10px;
+  }
+  .banner-pill {
+    font-size: 7px;
+  }
+  .stat-card > div {
+    font-size: 12px;
+  }
+  .stat-card footer {
+    font-size: 10px;
+  }
+  .project-card {
+    padding: 20px;
+  }
+  .project-card h3 {
+    font-size: 16px;
+  }
+  .project-card > p {
+    font-size: 12px;
+    min-height: 0;
+  }
+  .project-date,
+  .project-progress-label,
+  .project-progress-label b {
+    font-size: 11px;
+  }
+  .section-heading h2 {
+    font-size: 17px;
+  }
+  .activity-panel {
+    display: block;
+  }
+  .board-footnote {
+    font-size: 10px;
+  }
+  .segmented button {
+    font-size: 10px;
+    padding: 7px;
+  }
+  .view-toggle button {
+    font-size: 10px;
+  }
+  .toolbar-filters > select {
+    font-size: 10px;
+  }
+  .input-search input {
+    font-size: 12px;
+  }
+  .modal-form input,
+  .modal-form select,
+  .modal-form textarea,
+  .comments textarea {
+    font-size: 16px;
+  }
+  .workspace-footer {
+    font-size: 8px;
+  }
+  .auth-top {
+    font-size: 7px;
+  }
+  .task-table th {
+    font-size: 10px;
+  }
+  .task-table td {
+    font-size: 11px;
+  }
+  .table-task-title {
+    font-size: 12px;
+  }
+  .task-table .status-badge,
+  .task-table .priority {
+    font-size: 10px;
+  }
+}

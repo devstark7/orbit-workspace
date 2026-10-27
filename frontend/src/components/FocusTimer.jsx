@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Pause, Play, RotateCcw, Timer, Check, Maximize2 } from 'lucide-react';
 import { IconButton } from './ui';
 export default function FocusTimer() {

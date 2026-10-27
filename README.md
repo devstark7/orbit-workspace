@@ -47,7 +47,7 @@ Copy the example configuration:
 Copy-Item backend/.env.example backend/.env
 ```
 
-Set `MONGO_URI` to a local MongoDB database or your MongoDB Atlas connection string. Do not commit `.env`.
+Set `MONGO_URI` to a MongoDB replica set or your MongoDB Atlas connection string. Orbit requires transaction support and rejects standalone MongoDB at startup. Do not commit `.env`.
 
 | Variable        | Development                                  | Production                                                  |
 | --------------- | -------------------------------------------- | ----------------------------------------------------------- |
@@ -68,7 +68,7 @@ For persistent local MongoDB without Atlas:
 docker compose up -d
 ```
 
-Set `MONGO_URI=mongodb://127.0.0.1:27017/orbit` in `backend/.env`, then run `npm run dev`.
+Wait for `docker compose ps` to report healthy. Set `MONGO_URI=mongodb://127.0.0.1:27017/orbit?replicaSet=rs0&directConnection=true` in `backend/.env`, then run `npm run dev`. The supplied single-node replica set is for local development; use a managed replica set for production.
 
 ## Production
 
@@ -92,7 +92,9 @@ npm run format:check
 
 - API integration tests use a real temporary MongoDB instance and Supertest cookie agents.
 - Regression cases cover public admin escalation, project-ID task disclosure, cross-project writes, invalid assignments, member/owner permissions, session revocation, input validation, and isolated demo sessions.
+- Fault-injection tests verify rollback when activity writes or project deletion fail. Retry tests verify that simultaneous duplicate task submissions create one task and one activity record.
 - Frontend logic tests cover composed filters, overdue boundaries, completion series, empty-state summaries, CSV escaping, and avatar initials.
+- Deadline regressions run in five timezones, including negative offsets, UTC+14, India, and a daylight-saving boundary. Due dates are calendar days; completion times remain actual instants.
 
 See [verification notes](docs/VERIFICATION.md) for the exact checks and limits of the delivered version.
 
@@ -109,9 +111,10 @@ backend/
   tests/                 API regression tests against MongoDB
 frontend/
   src/OrbitApp.jsx        Workspace state, server actions, navigation
-  src/components/        Overview, board, dialogs, auth, focus timer
+  src/components/        Overview, sidebar, settings, command palette, board, dialogs
   src/lib/               Fetch client and pure task/statistics functions
-  src/orbit.css          Design tokens, layout, motion, responsive rules
+  src/orbit.css          Explicit layer order and feature stylesheet imports
+  src/styles/            Base, workspace, dialog, welcome, typography, responsive styles
   tests/                 Domain behavior tests
 docs/
   ARCHITECTURE.md         Data flow, permissions, and deliberate tradeoffs

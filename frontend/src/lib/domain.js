@@ -10,11 +10,20 @@ export const initials = (name) =>
     .map((s) => s[0])
     .join('')
     .toUpperCase();
+export function calendarDate(value) {
+  if (typeof value === 'string' && /^\d{4}-\d{2}-\d{2}/.test(value)) return value.slice(0, 10);
+  const date = new Date(value);
+  return [
+    date.getFullYear(),
+    String(date.getMonth() + 1).padStart(2, '0'),
+    String(date.getDate()).padStart(2, '0'),
+  ].join('-');
+}
 export function isOverdue(task, now = new Date()) {
   return (
     task.status !== 'Done' &&
     !!task.dueDate &&
-    new Date(task.dueDate).getTime() < new Date(now).setHours(0, 0, 0, 0)
+    calendarDate(task.dueDate) < calendarDate(new Date(now))
   );
 }
 export function filterTasks(
@@ -65,7 +74,12 @@ export function completionSeries(tasks, days = 7, now = new Date()) {
   });
 }
 export function dateLabel(value, options = { month: 'short', day: 'numeric' }) {
-  return value ? new Date(value).toLocaleDateString('en', options) : 'No due date';
+  return value
+    ? new Date(calendarDate(value) + 'T12:00:00.000Z').toLocaleDateString('en', {
+        ...options,
+        timeZone: 'UTC',
+      })
+    : 'No due date';
 }
 export function timeAgo(value, now = Date.now()) {
   const m = Math.max(0, Math.floor((now - new Date(value)) / 60000));

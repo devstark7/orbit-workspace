@@ -1,0 +1,638 @@
+.page-intro p,
+.section-heading p,
+.project-card > p,
+.banner-copy > p,
+.stat-card > div,
+.stat-card footer > span,
+.project-date,
+.project-progress-label,
+.project-progress-label b,
+.task-card > p,
+.task-card-meta > span:last-child,
+.activity-feed article p,
+.activity-feed article time,
+.activity-feed article > div > span,
+.chart-summary > strong > span,
+.chart-key,
+.chart-footer,
+.task-table td,
+.task-table th,
+.board-footnote,
+.workspace-footer,
+.project-meta,
+.settings-profile > div > span,
+.setting-row p,
+.comments > p,
+.comments article p,
+.comments time,
+.detail-description,
+.detail-properties > div > span:first-child,
+.modal-header p,
+.form-help,
+.demo-note,
+.auth-form > p,
+.auth-form > .auth-switch,
+.demo-caption,
+.divider,
+.auth-top,
+.auth-bottom > span:nth-child(2) {
+  color: #6e7b64;
+}
+
+.auth-form input::placeholder,
+.modal-form input::placeholder,
+.modal-form textarea::placeholder,
+.comments textarea::placeholder,
+.input-search input::placeholder {
+  color: #7d8972;
+}
+
+.auth-form label,
+.modal-form label,
+.color-picker legend,
+.detail-properties b,
+.comments article b {
+  color: #516b40;
+}
+
+.nav-item {
+  font-size: 13px;
+}
+
+.sidebar-projects button {
+  font-size: 11px;
+  color: #a7b8a1;
+}
+
+.sidebar-search {
+  font-size: 12px;
+  color: #9eb092;
+}
+
+.nav-caption,
+.sidebar-project-heading {
+  font-size: 9px;
+  color: #93a687;
+}
+
+.workspace-select b {
+  font-size: 12px;
+}
+
+.workspace-select small {
+  font-size: 10px;
+  color: #a0b294;
+}
+
+.sidebar-bottom > .nav-item {
+  font-size: 11px;
+}
+
+.profile-button b {
+  font-size: 12px;
+}
+
+.profile-button small {
+  font-size: 9px;
+  color: #93a887;
+}
+
+.focus-widget header > span {
+  font-size: 11px;
+}
+
+.focus-widget > p {
+  font-size: 10px;
+  color: #9cb27c;
+}
+
+.focus-start {
+  font-size: 10px;
+}
+
+.focus-time {
+  font-size: 33px;
+}
+
+.focus-widget header .icon-button,
+.focus-controls > .icon-button {
+  color: #a2bb81;
+}
+
+.focus-widget {
+  padding: 14px 12px;
+}
+
+.page-intro p {
+  font-size: 13px;
+}
+
+.page-intro .eyebrow {
+  font-size: 9px;
+  color: #6f7f60;
+}
+
+.banner-kicker {
+  font-size: 8px;
+  color: #586f42;
+}
+
+.banner-copy > p {
+  font-size: 12px;
+}
+
+.banner-button {
+  font-size: 11px;
+}
+
+.banner-pill {
+  font-size: 9px;
+  color: #536c3e;
+}
+
+.stat-card > div {
+  font-size: 12px;
+}
+
+.stat-card footer {
+  font-size: 10px;
+}
+
+.stat-card > strong {
+  font-size: 32px;
+}
+
+.section-heading h2 {
+  font-size: 17px;
+}
+
+.section-heading p {
+  font-size: 11px;
+}
+
+.section-heading > .text-link {
+  font-size: 11px;
+  color: #5d7648;
+}
+
+.project-card h3 {
+  font-size: 15px;
+  color: #3c5330;
+}
+
+.project-card > p {
+  font-size: 12px;
+  min-height: 41px;
+}
+
+.project-date,
+.project-progress-label,
+.project-progress-label b {
+  font-size: 10px;
+}
+
+.project-card > footer > span:last-child {
+  font-size: 10px;
+  color: #667c52;
+}
+
+.section-count {
+  font-size: 10px;
+  color: #60784b;
+}
+
+.project-icon {
+  width: 38px;
+  height: 38px;
+}
+
+.project-card > footer > .avatar-group .avatar {
+  width: 26px;
+  height: 26px;
+  font-size: 8px;
+}
+
+.project-card {
+  padding: 20px;
+}
+
+.project-grid {
+  gap: 17px;
+}
+
+.chart-summary > strong > span {
+  font-size: 11px;
+}
+
+.chart-key {
+  font-size: 9px;
+}
+
+.chart-grid > div {
+  font-size: 9px;
+  color: #748469;
+}
+
+.bar-column > span {
+  font-size: 9px;
+  color: #6d7f60;
+}
+
+.chart-footer {
+  font-size: 10px;
+}
+
+.bar-chart {
+  height: 150px;
+}
+
+.section-heading > select {
+  font-size: 10px;
+  color: #5c724a;
+}
+
+.activity-feed article p,
+.activity-feed article > div > span {
+  font-size: 11px;
+}
+
+.activity-feed article b {
+  color: #476336;
+}
+
+.activity-feed article time {
+  font-size: 9px;
+}
+
+.activity-feed.compact article {
+  padding: 11px 0;
+}
+
+.activity-link {
+  font-size: 10px;
+  color: #5b7646;
+}
+
+.activity-feed article > .avatar {
+  width: 28px;
+  height: 28px;
+  font-size: 9px;
+}
+
+.task-table th {
+  font-size: 10px;
+}
+
+.task-table td {
+  font-size: 11px;
+}
+
+.table-task-title {
+  font-size: 12px;
+  color: #4c663b;
+}
+
+.task-table .status-badge,
+.task-table .priority {
+  font-size: 10px;
+}
+
+.status-badge {
+  font-size: 11px;
+  color: #59664f;
+}
+
+.status-in-progress {
+  color: #84661e;
+}
+
+.status-done {
+  color: #4c7132;
+}
+
+.priority-high {
+  color: #9d5841;
+}
+
+.priority-medium {
+  color: #826b25;
+}
+
+.priority-low {
+  color: #4b765c;
+}
+
+.table-task-title.completed {
+  color: #7d8b70;
+}
+
+.task-table .avatar {
+  width: 26px;
+  height: 26px;
+  font-size: 8px;
+}
+
+.task-check {
+  width: 16px;
+  height: 16px;
+}
+
+.project-cell {
+  font-size: 10px;
+}
+
+.section-heading > .text-link {
+  font-size: 11px;
+}
+
+.board-column h3 {
+  font-size: 13px;
+  color: #546d40;
+}
+
+.board-column .count {
+  font-size: 10px;
+  color: #5d7848;
+}
+
+.label-tag {
+  font-size: 10px;
+}
+
+.label-design {
+  color: #7a589e;
+}
+
+.label-engineering {
+  color: #416e92;
+}
+
+.label-research {
+  color: #8b632d;
+}
+
+.label-product {
+  color: #627b39;
+}
+
+.task-title {
+  font-size: 14px;
+  color: #425d32;
+}
+
+.task-card > p {
+  font-size: 12px;
+}
+
+.task-card-meta > span:last-child,
+.task-card .priority {
+  font-size: 10px;
+}
+
+.task-card footer .avatar {
+  width: 27px;
+  height: 27px;
+  font-size: 9px;
+}
+
+.task-comments {
+  font-size: 10px;
+  color: #788e65;
+}
+
+.unassigned {
+  font-size: 10px;
+  color: #778d63;
+}
+
+.task-card {
+  padding: 17px;
+}
+
+.add-task-inline {
+  font-size: 12px;
+  color: #5d7848;
+}
+
+.column-empty {
+  font-size: 12px;
+  color: #6f845c;
+}
+
+.board-footnote {
+  font-size: 10px;
+}
+
+.segmented button {
+  font-size: 12px;
+  color: #627a4f;
+}
+
+.segmented button.active {
+  color: #3f6030;
+}
+
+.segmented button > span {
+  font-size: 10px;
+  color: #5e7b45;
+}
+
+.input-search input {
+  font-size: 12px;
+}
+
+.view-toggle button {
+  font-size: 11px;
+  color: #6f845b;
+}
+
+.toolbar-filters > select {
+  font-size: 11px;
+  color: #607b49;
+}
+
+.project-meta {
+  font-size: 11px;
+}
+
+.project-meta .text-link {
+  font-size: 11px;
+}
+
+.project-status {
+  color: #56743d;
+}
+
+.workspace-footer {
+  font-size: 9px;
+}
+
+.live-label {
+  color: #647e4f;
+}
+
+.new-project-card p {
+  font-size: 12px;
+  color: #748c60;
+}
+
+.new-project-card b {
+  font-size: 14px;
+}
+
+.new-project-card {
+  color: #617d4b;
+}
+
+.setting-row p {
+  font-size: 12px;
+}
+
+.setting-row h3 {
+  font-size: 14px;
+}
+
+.settings-profile b {
+  font-size: 14px;
+}
+
+.settings-profile > div > span {
+  font-size: 12px;
+}
+
+.keyboard-help > span {
+  font-size: 12px;
+  color: #667e52;
+}
+
+.keyboard-help dl {
+  font-size: 11px;
+  color: #657c52;
+}
+
+.demo-note,
+.form-help {
+  font-size: 12px;
+}
+
+.modal-form label,
+.color-picker legend {
+  font-size: 12px;
+}
+
+.modal-form input,
+.modal-form select,
+.modal-form textarea {
+  font-size: 13px;
+}
+
+.detail-description {
+  font-size: 13px;
+}
+
+.detail-properties b {
+  font-size: 12px;
+}
+
+.detail-properties > div > span:first-child {
+  font-size: 11px;
+}
+
+.comments article p {
+  font-size: 12px;
+}
+
+.comments article b {
+  font-size: 12px;
+}
+
+.comments time {
+  font-size: 10px;
+}
+
+.comments > p {
+  font-size: 12px;
+}
+
+.comments textarea {
+  font-size: 13px;
+}
+
+.auth-form > p {
+  font-size: 13px;
+}
+
+.auth-form label {
+  font-size: 12px;
+}
+
+.auth-form input {
+  font-size: 13px;
+}
+
+.auth-form > .auth-switch,
+.auth-switch > button {
+  font-size: 11px;
+}
+
+.demo-caption {
+  font-size: 10px;
+}
+
+.auth-top,
+.auth-bottom > span:nth-child(2) {
+  font-size: 10px;
+}
+
+.divider {
+  font-size: 10px;
+}
+
+.demo-button,
+.auth-submit {
+  font-size: 13px;
+  min-height: 47px;
+}
+
+.auth-form > .eyebrow {
+  font-size: 8px;
+  color: #637d4e;
+}
+
+.story-copy p {
+  font-size: 14px;
+  color: #a7ba94;
+}
+
+.story-kicker {
+  font-size: 9px;
+  color: #b0c69a;
+}
+
+.auth-story > footer {
+  color: #9eb58c;
+  font-size: 7px;
+}
+
+.floating-note b {
+  font-size: 12px;
+}
+
+.floating-note small {
+  font-size: 10px;
+  color: #6f855b;
+}
+
+.reduced-motion .orbit-satellite {
+  animation: none;
+}
+
+.sr-only {
+  left: 0;
+  top: 0;
+}
+
+.table-scroll {
+  position: relative;
+  max-width: 100%;
+}

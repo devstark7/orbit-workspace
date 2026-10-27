@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   DndContext,
   PointerSensor,
@@ -11,7 +11,6 @@ import {
 import { Plus, GripVertical, MessageSquare, CalendarDays, ArrowUpRight, Check } from 'lucide-react';
 import { STATUSES, dateLabel, isOverdue } from '../lib/domain';
 import { Avatar, Priority, StatusBadge, Empty } from './ui';
-
 export function TaskCard({ task, onOpen, drag = false }) {
   const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
     id: task._id,
@@ -60,7 +59,9 @@ export function TaskCard({ task, onOpen, drag = false }) {
   );
 }
 function Column({ status, tasks, onOpen, onCreate }) {
-  const { setNodeRef, isOver } = useDroppable({ id: status });
+  const { setNodeRef, isOver } = useDroppable({
+    id: status,
+  });
   return (
     <section
       ref={setNodeRef}
@@ -95,7 +96,13 @@ function Column({ status, tasks, onOpen, onCreate }) {
   );
 }
 export function TaskBoard({ tasks, onOpen, onCreate, onMove }) {
-  const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 8 } }));
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 8,
+      },
+    }),
+  );
   const [dragged, setDragged] = useState(null);
   return (
     <DndContext

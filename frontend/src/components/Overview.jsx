@@ -1,24 +1,19 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import {
   ArrowUpRight,
   ArrowRight,
   Plus,
-  MoreHorizontal,
   FolderOpen,
   CheckCircle2,
   Clock3,
   TrendingUp,
-  CalendarDays,
-  MessageSquare,
-  Activity,
   Orbit,
   Sparkles,
 } from 'lucide-react';
 import { Avatar, AvatarGroup, ArrowLink, Empty } from './ui';
 import { TaskTable } from './TaskBoard';
 import { summarize, recordId, completionSeries, dateLabel, timeAgo } from '../lib/domain';
-
 export function ProjectCard({ project, tasks, onOpen, index = 0 }) {
   const related = tasks.filter((t) => recordId(t.project) === project._id),
     stats = summarize(related);
@@ -26,8 +21,12 @@ export function ProjectCard({ project, tasks, onOpen, index = 0 }) {
     <motion.button
       className={`project-card project-${project.color}`}
       onClick={() => onOpen(project)}
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.22 }}
+      whileHover={{
+        y: -4,
+      }}
+      transition={{
+        duration: 0.22,
+      }}
     >
       <div className="project-top">
         <span className={`project-icon color-${project.color}`}>
@@ -48,9 +47,16 @@ export function ProjectCard({ project, tasks, onOpen, index = 0 }) {
       </div>
       <div className="progress-track">
         <motion.span
-          initial={{ width: 0 }}
-          animate={{ width: stats.percent + '%' }}
-          transition={{ duration: 0.8, delay: index * 0.12 }}
+          initial={{
+            width: 0,
+          }}
+          animate={{
+            width: stats.percent + '%',
+          }}
+          transition={{
+            duration: 0.8,
+            delay: index * 0.12,
+          }}
         />
       </div>
       <footer>
@@ -124,7 +130,10 @@ export default function Overview({
       icon: CheckCircle2,
       color: 'lime',
       view: 'tasks',
-      filters: { status: 'Done', scope: 'all' },
+      filters: {
+        status: 'Done',
+        scope: 'all',
+      },
     },
     {
       label: 'In progress',
@@ -133,7 +142,10 @@ export default function Overview({
       icon: Clock3,
       color: 'peach',
       view: 'tasks',
-      filters: { status: 'In Progress', scope: 'all' },
+      filters: {
+        status: 'In Progress',
+        scope: 'all',
+      },
     },
     {
       label: 'Needs attention',
@@ -142,7 +154,10 @@ export default function Overview({
       icon: TrendingUp,
       color: 'blue',
       view: 'tasks',
-      filters: { overdue: true, scope: 'all' },
+      filters: {
+        overdue: true,
+        scope: 'all',
+      },
     },
   ];
   return (
@@ -210,9 +225,17 @@ export default function Overview({
             className="stat-card"
             key={c.label}
             onClick={() => onNavigate(c.view, c.filters)}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.08 * i }}
+            initial={{
+              opacity: 0,
+              y: 8,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              delay: 0.08 * i,
+            }}
           >
             <div>
               <span>{c.label}</span>
@@ -302,9 +325,16 @@ export default function Overview({
                   <div className="bar-area">
                     <motion.div
                       className={`chart-bar ${i === series.length - 1 ? 'today' : ''}`}
-                      initial={{ height: 0 }}
-                      animate={{ height: (d.value / max) * 100 + '%' }}
-                      transition={{ duration: 0.7, delay: i * 0.035 }}
+                      initial={{
+                        height: 0,
+                      }}
+                      animate={{
+                        height: (d.value / max) * 100 + '%',
+                      }}
+                      transition={{
+                        duration: 0.7,
+                        delay: i * 0.035,
+                      }}
                     >
                       <span className="bar-tooltip">{d.value} completed</span>
                     </motion.div>

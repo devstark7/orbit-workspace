@@ -1,40 +1,24 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import SettingsPage from './components/SettingsPage';
+import CommandPalette from './components/CommandPalette';
+import Sidebar from './components/Sidebar';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { MotionConfig } from 'motion/react';
 import {
-  LayoutDashboard,
-  FolderOpen,
-  CheckSquare,
-  Activity,
   Settings,
   Search,
   Plus,
-  ChevronDown,
   ChevronRight,
-  ArrowUpRight,
   ArrowLeft,
-  ArrowRight,
-  Command,
   Bell,
   Menu,
   X,
   LayoutGrid,
   List,
-  SlidersHorizontal,
   Download,
   LogOut,
-  Sparkles,
-  Users,
   CalendarDays,
   MoreHorizontal,
   RefreshCw,
-  Check,
-  Trash2,
-  ShieldCheck,
-  Sun,
-  Moon,
-  HelpCircle,
-  Keyboard,
-  ExternalLink,
 } from 'lucide-react';
 import { api } from './lib/api';
 import { filterTasks, summarize, recordId, dateLabel, csvExport, isOverdue } from './lib/domain';
@@ -48,20 +32,11 @@ import {
   Toast,
   Empty,
   PageMotion,
-  ArrowLink,
 } from './components/ui';
 import AuthScreen from './components/AuthScreen';
 import Overview, { ProjectCard, ActivityFeed } from './components/Overview';
 import { TaskBoard, TaskTable } from './components/TaskBoard';
 import { ProjectForm, TaskForm, TaskDetail, InviteForm } from './components/Forms';
-import FocusTimer from './components/FocusTimer';
-
-const nav = [
-  ['overview', 'Overview', LayoutDashboard],
-  ['projects', 'Projects', FolderOpen],
-  ['tasks', 'My tasks', CheckSquare],
-  ['activity', 'Activity', Activity],
-];
 const readSetting = (key, fallback) => {
   try {
     return JSON.parse(localStorage.getItem('orbit.' + key)) ?? fallback;
@@ -73,7 +48,11 @@ export default function App() {
   const [user, setUser] = useState(null),
     [booting, setBooting] = useState(true),
     [loading, setLoading] = useState(true),
-    [data, setData] = useState({ projects: [], tasks: [], activity: [] }),
+    [data, setData] = useState({
+      projects: [],
+      tasks: [],
+      activity: [],
+    }),
     [loadError, setLoadError] = useState('');
   const [view, setView] = useState('overview'),
     [projectId, setProjectId] = useState(null),
@@ -104,7 +83,12 @@ export default function App() {
   const request = useRef(0),
     busyMove = useRef(new Set());
   const showToast = useCallback(
-      (message, error = false) => setToast({ message, error, id: Date.now() }),
+      (message, error = false) =>
+        setToast({
+          message,
+          error,
+          id: Date.now(),
+        }),
       [],
     ),
     clearToast = useCallback(() => setToast(null), []);
@@ -124,14 +108,22 @@ export default function App() {
         api('/activity'),
       ]);
       if (current === request.current) {
-        setData({ projects, tasks, activity });
+        setData({
+          projects,
+          tasks,
+          activity,
+        });
         setLoadError('');
       }
     } catch (e) {
       if (current === request.current) {
         if (e.status === 401) {
           setUser(null);
-          setData({ projects: [], tasks: [], activity: [] });
+          setData({
+            projects: [],
+            tasks: [],
+            activity: [],
+          });
         } else setLoadError(e.message);
       }
     } finally {
@@ -166,8 +158,14 @@ export default function App() {
     (type, extra = {}) => {
       if (type === 'task' && !data.projects.some((p) => p.status === 'Active')) {
         showToast('Create an active project first.');
-        setModal({ type: 'project' });
-      } else setModal({ type, ...extra });
+        setModal({
+          type: 'project',
+        });
+      } else
+        setModal({
+          type,
+          ...extra,
+        });
     },
     [data.projects, showToast],
   );
@@ -192,7 +190,10 @@ export default function App() {
     return () => document.removeEventListener('keydown', key);
   }, [user, modal, command, create]);
   async function mutate(path, method, body, message) {
-    const result = await api(path, { method, body });
+    const result = await api(path, {
+      method,
+      body,
+    });
     await refresh();
     if (message) showToast(message);
     return result;
@@ -204,7 +205,11 @@ export default function App() {
       ...d,
       tasks: d.tasks.map((t) =>
         t._id === task._id
-          ? { ...t, status: next, completedAt: next === 'Done' ? new Date().toISOString() : null }
+          ? {
+              ...t,
+              status: next,
+              completedAt: next === 'Done' ? new Date().toISOString() : null,
+            }
           : t,
       ),
     }));
@@ -212,7 +217,9 @@ export default function App() {
       await mutate(
         '/tasks/' + task._id,
         'PATCH',
-        { status: next },
+        {
+          status: next,
+        },
         next === 'Done' ? 'One more good thing, done.' : 'Task moved. Keep it flowing.',
       );
     } catch (e) {
@@ -224,10 +231,17 @@ export default function App() {
   }
   async function logout() {
     try {
-      await api('/auth/logout', { method: 'POST', body: {} });
+      await api('/auth/logout', {
+        method: 'POST',
+        body: {},
+      });
       request.current++;
       setUser(null);
-      setData({ projects: [], tasks: [], activity: [] });
+      setData({
+        projects: [],
+        tasks: [],
+        activity: [],
+      });
       navigate('overview');
       setModal(null);
     } catch (e) {
@@ -235,7 +249,9 @@ export default function App() {
     }
   }
   function exportTasks() {
-    const blob = new Blob(['\uFEFF' + csvExport(visibleTasks)], { type: 'text/csv;charset=utf-8' }),
+    const blob = new Blob(['\uFEFF' + csvExport(visibleTasks)], {
+        type: 'text/csv;charset=utf-8',
+      }),
       url = URL.createObjectURL(blob),
       a = document.createElement('a');
     a.href = url;
@@ -262,11 +278,17 @@ export default function App() {
       (!search ||
         [p.name, p.description].some((v) => v?.toLowerCase().includes(search.toLowerCase()))),
   );
-  const commandTasks = filterTasks(tasks, { query }).slice(0, 5),
+  const commandTasks = filterTasks(tasks, {
+      query,
+    }).slice(0, 5),
     commandProjects = projects
       .filter((p) => p.name.toLowerCase().includes(query.toLowerCase()))
       .slice(0, 3);
-  const onTask = (t) => setModal({ type: 'detail', taskId: t._id });
+  const onTask = (t) =>
+    setModal({
+      type: 'detail',
+      taskId: t._id,
+    });
   const isOwner = project && recordId(project.owner) === user?._id;
   if (booting)
     return (
@@ -300,97 +322,23 @@ export default function App() {
               onClick={() => setMobile(false)}
             />
           )}
-          <aside
-            className={`sidebar ${mobile ? 'mobile-open' : ''}`}
-            inert={narrow && !mobile ? true : undefined}
-            aria-hidden={narrow && !mobile ? true : undefined}
-          >
-            <div className="sidebar-brand">
-              <Brand />
-              <span className="workspace-badge">WORKSPACE</span>
-            </div>
-            <button className="workspace-select" onClick={() => setModal({ type: 'workspace' })}>
-              <span className="workspace-icon">
-                o<span>✳</span>
-              </span>
-              <span>
-                <b>{user.demo ? 'The creative space' : 'My workspace'}</b>
-                <small>{user.demo ? 'Demo workspace' : 'Personal workspace'}</small>
-              </span>
-              <ChevronDown size={16} />
-            </button>
-            <button
-              className="sidebar-search"
-              onClick={() => {
-                setQuery('');
-                setCommand(true);
-              }}
-            >
-              <Search size={16} />
-              <span>Find your way</span>
-              <kbd>⌘ K</kbd>
-            </button>
-            <div className="nav-caption">YOUR WORKSPACE</div>
-            <nav aria-label="Main navigation">
-              {nav.map(([id, label, Icon]) => (
-                <button
-                  key={id}
-                  className={`nav-item ${view === id ? 'active' : ''}`}
-                  onClick={() => navigate(id)}
-                  aria-current={view === id ? 'page' : undefined}
-                >
-                  <Icon size={18} strokeWidth={1.7} />
-                  <span>{label}</span>
-                  {id === 'tasks' && stats.mine > 0 && (
-                    <span className="nav-counter">{stats.mine}</span>
-                  )}
-                  {id === 'overview' && view === id && <span className="active-spark">✳</span>}
-                </button>
-              ))}
-            </nav>
-            <div className="sidebar-project-heading">
-              <span>IN YOUR ORBIT</span>
-              <IconButton label="Create project" onClick={() => create('project')}>
-                <Plus size={16} />
-              </IconButton>
-            </div>
-            <div className="sidebar-projects">
-              {projects
-                .filter((p) => p.status === 'Active')
-                .map((p) => (
-                  <button
-                    key={p._id}
-                    onClick={() => openProject(p)}
-                    className={projectId === p._id ? 'selected' : ''}
-                  >
-                    <span className={`project-dot color-${p.color}`} />
-                    <span>{p.name}</span>
-                    <ChevronRight size={13} />
-                  </button>
-                ))}
-              {!projects.length && <p>Your next great idea goes here.</p>}
-            </div>
-            <div className="sidebar-bottom">
-              <FocusTimer />
-              <button
-                className={`nav-item ${view === 'settings' ? 'active' : ''}`}
-                onClick={() => navigate('settings')}
-              >
-                <Settings size={18} />
-                <span>Workspace settings</span>
-              </button>
-              <button className="profile-button" onClick={() => setModal({ type: 'profile' })}>
-                <Avatar person={user} index={0} />
-                <span>
-                  <b>{user.name}</b>
-                  <small>
-                    {user.demo ? 'Exploring the possibilities' : 'Member · Personal workspace'}
-                  </small>
-                </span>
-                <MoreHorizontal size={17} />
-              </button>
-            </div>
-          </aside>
+          <Sidebar
+            {...{
+              mobile,
+              narrow,
+              user,
+              view,
+              projects,
+              projectId,
+              stats,
+              navigate,
+              openProject,
+              create,
+              setModal,
+              setCommand,
+              setQuery,
+            }}
+          />
           <div className="workspace-main">
             <header className="topbar">
               <div className="breadcrumbs">
@@ -445,7 +393,11 @@ export default function App() {
                 <button
                   className="topbar-avatar"
                   aria-label="Open your profile"
-                  onClick={() => setModal({ type: 'profile' })}
+                  onClick={() =>
+                    setModal({
+                      type: 'profile',
+                    })
+                  }
                 >
                   <Avatar person={user} size="small" />
                 </button>
@@ -583,7 +535,11 @@ export default function App() {
                           {view === 'project' && isOwner && (
                             <IconButton
                               label="Edit project"
-                              onClick={() => setModal({ type: 'editProject' })}
+                              onClick={() =>
+                                setModal({
+                                  type: 'editProject',
+                                })
+                              }
                             >
                               <MoreHorizontal size={21} />
                             </IconButton>
@@ -591,7 +547,11 @@ export default function App() {
                           <button
                             className="btn primary"
                             disabled={view === 'project' && project?.status !== 'Active'}
-                            onClick={() => create('task', { projectId: projectId || undefined })}
+                            onClick={() =>
+                              create('task', {
+                                projectId: projectId || undefined,
+                              })
+                            }
                           >
                             <Plus size={17} />
                             New task
@@ -605,7 +565,11 @@ export default function App() {
                           {isOwner && (
                             <button
                               className="text-link"
-                              onClick={() => setModal({ type: 'invite' })}
+                              onClick={() =>
+                                setModal({
+                                  type: 'invite',
+                                })
+                              }
                             >
                               <Plus size={14} />
                               Add teammate
@@ -711,7 +675,10 @@ export default function App() {
                           tasks={visibleTasks}
                           onOpen={onTask}
                           onCreate={(s) =>
-                            create('task', { projectId: projectId || undefined, status: s })
+                            create('task', {
+                              projectId: projectId || undefined,
+                              status: s,
+                            })
                           }
                           onMove={moveTask}
                         />
@@ -756,109 +723,16 @@ export default function App() {
                     </>
                   )}
                   {view === 'settings' && (
-                    <>
-                      <div className="page-intro">
-                        <div>
-                          <span className="eyebrow">MAKE YOURSELF AT HOME</span>
-                          <h1>
-                            Your space, your rhythm<span className="greeting-sun">✳</span>
-                          </h1>
-                          <p>A few thoughtful details to make Orbit feel like you.</p>
-                        </div>
-                      </div>
-                      <div className="settings-grid">
-                        <section className="panel settings-panel">
-                          <h2>A little about you</h2>
-                          <div className="settings-profile">
-                            <Avatar person={user} />
-                            <div>
-                              <b>{user.name}</b>
-                              <span>{user.demo ? 'Private demo session' : user.email}</span>
-                            </div>
-                            <span className="role-pill">Member</span>
-                          </div>
-                          <div className="setting-row">
-                            <div>
-                              <h3>Session privacy</h3>
-                              <p>
-                                Your sign-in uses an HTTP-only cookie. Project access is checked on
-                                the server.
-                              </p>
-                            </div>
-                            <ShieldCheck size={22} />
-                          </div>
-                          {user.demo && (
-                            <p className="demo-note">
-                              This demo is just for you. It uses fictional teammates and expires
-                              after 24 hours. A temporary local database resets when the server
-                              stops.
-                            </p>
-                          )}
-                          <button className="btn secondary" onClick={logout}>
-                            <LogOut size={16} />
-                            Sign out
-                          </button>
-                        </section>
-                        <section className="panel settings-panel">
-                          <h2>Find your comfortable</h2>
-                          <div className="setting-row">
-                            <div>
-                              <h3>Less motion</h3>
-                              <p>Keep transitions quiet and the workspace still.</p>
-                            </div>
-                            <button
-                              role="switch"
-                              aria-checked={reduced}
-                              aria-label="Reduce motion"
-                              className={`toggle ${reduced ? 'on' : ''}`}
-                              onClick={() => {
-                                localStorage.setItem('orbit.reduced', JSON.stringify(!reduced));
-                                setReduced(!reduced);
-                              }}
-                            >
-                              <span />
-                            </button>
-                          </div>
-                          <div className="setting-row">
-                            <div>
-                              <h3>A little more compact</h3>
-                              <p>Give more tasks a place on your screen.</p>
-                            </div>
-                            <button
-                              role="switch"
-                              aria-checked={compact}
-                              aria-label="Compact layout"
-                              className={`toggle ${compact ? 'on' : ''}`}
-                              onClick={() => {
-                                localStorage.setItem('orbit.compact', JSON.stringify(!compact));
-                                setCompact(!compact);
-                              }}
-                            >
-                              <span />
-                            </button>
-                          </div>
-                          <div className="keyboard-help">
-                            <Keyboard size={18} />
-                            <span>Your next step is a shortcut away.</span>
-                            <dl>
-                              <dt>Find anything</dt>
-                              <dd>
-                                <kbd>Ctrl / ⌘</kbd>
-                                <kbd>K</kbd>
-                              </dd>
-                              <dt>New task</dt>
-                              <dd>
-                                <kbd>N</kbd>
-                              </dd>
-                              <dt>Close dialog</dt>
-                              <dd>
-                                <kbd>Esc</kbd>
-                              </dd>
-                            </dl>
-                          </div>
-                        </section>
-                      </div>
-                    </>
+                    <SettingsPage
+                      {...{
+                        user,
+                        logout,
+                        reduced,
+                        compact,
+                        setReduced,
+                        setCompact,
+                      }}
+                    />
                   )}
                 </PageMotion>
               )}
@@ -908,13 +782,20 @@ export default function App() {
           task={selectedTask}
           user={user}
           onClose={() => setModal(null)}
-          onEdit={(t) => setModal({ type: 'editTask', taskId: t._id })}
+          onEdit={(t) =>
+            setModal({
+              type: 'editTask',
+              taskId: t._id,
+            })
+          }
           onMove={moveTask}
           onComment={(t, text) =>
             mutate(
               '/tasks/' + t._id + '/comments',
               'POST',
-              { text },
+              {
+                text,
+              },
               'Your voice is in the conversation.',
             )
           }
@@ -929,7 +810,9 @@ export default function App() {
             mutate(
               '/projects/' + project._id + '/members',
               'POST',
-              { email },
+              {
+                email,
+              },
               'A little better, together.',
             )
           }
@@ -974,84 +857,18 @@ export default function App() {
         </Modal>
       )}
       {user && command && (
-        <Modal title="Find your way." onClose={() => setCommand(false)}>
-          <div className="command-palette">
-            <div className="command-input">
-              <Search size={19} />
-              <input
-                data-autofocus
-                aria-label="Search workspace"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Projects, tasks, a little inspiration…"
-              />
-              <kbd>Esc</kbd>
-            </div>
-            <div className="command-results">
-              {!query && (
-                <>
-                  <span className="eyebrow">QUICK MOVES</span>
-                  <button
-                    onClick={() => {
-                      setCommand(false);
-                      create('task');
-                    }}
-                  >
-                    <Plus size={17} />
-                    Create a task<kbd>N</kbd>
-                  </button>
-                  <button
-                    onClick={() => {
-                      setCommand(false);
-                      create('project');
-                    }}
-                  >
-                    <FolderOpen size={17} />
-                    Start a project
-                    <ArrowUpRight size={15} />
-                  </button>
-                </>
-              )}
-              {commandProjects.length > 0 && <span className="eyebrow">PROJECTS</span>}
-              {commandProjects.map((p) => (
-                <button
-                  key={p._id}
-                  onClick={() => {
-                    setCommand(false);
-                    openProject(p);
-                  }}
-                >
-                  <i className={`project-dot color-${p.color}`} />
-                  {p.name}
-                  <ArrowUpRight size={15} />
-                </button>
-              ))}
-              {commandTasks.length > 0 && <span className="eyebrow">TASKS</span>}
-              {commandTasks.map((t) => (
-                <button
-                  key={t._id}
-                  onClick={() => {
-                    setCommand(false);
-                    onTask(t);
-                  }}
-                >
-                  <CheckSquare size={17} />
-                  <span>
-                    {t.title}
-                    <small>{t.project?.name}</small>
-                  </span>
-                  <ArrowUpRight size={15} />
-                </button>
-              ))}
-              {!commandProjects.length && !commandTasks.length && (
-                <Empty
-                  title="A little off the beaten path."
-                  text="Try another search, or create something new."
-                />
-              )}
-            </div>
-          </div>
-        </Modal>
+        <CommandPalette
+          {...{
+            query,
+            setQuery,
+            setCommand,
+            commandProjects,
+            commandTasks,
+            create,
+            openProject,
+            onTask,
+          }}
+        />
       )}
     </MotionConfig>
   );

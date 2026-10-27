@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const schema = new mongoose.Schema(
   {
     title: { type: String, required: true, trim: true, maxlength: 160 },
+    requestKey: { type: String, select: false },
+    requestHash: { type: String, select: false },
     description: { type: String, default: '', maxlength: 4000 },
     project: { type: mongoose.Schema.Types.ObjectId, ref: 'Project', required: true, index: true },
     assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: 'User', default: null },
@@ -27,4 +29,8 @@ const schema = new mongoose.Schema(
   { timestamps: true },
 );
 schema.index({ project: 1, status: 1 });
+schema.index(
+  { createdBy: 1, requestKey: 1 },
+  { unique: true, partialFilterExpression: { requestKey: { $type: 'string' } } },
+);
 module.exports = mongoose.model('Task', schema);
